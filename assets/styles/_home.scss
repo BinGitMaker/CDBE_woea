@@ -1,0 +1,70 @@
+/* massage CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.massage .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.massage h2 {
+    font-weight: 100;
+    font-family: 'Lobster', cursive;
+    font-size: 2rem;
+}
+.massage .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+}
+
+/* Featurettes
+------------------------- */
+.row-featurette{
+    align-items: center;
+}
+
+.featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the massage headings */
+.featurette-heading {
+    font-weight: 100;
+    line-height: 1;
+    letter-spacing: -.05rem;
+
+}
+
+
+
+/* Sandrine title */
+@media (max-width: 1660px) {
+    .row-featurette{
+        justify-content: center;
+    }
+    
+}
+
+/* Card Interventions */
+
+@media (max-width: 1000px) {
+    .intervention-card{
+        display: none;
+    }        
+    
+}
+
+.intervention-card{
+    max-width: 30rem;
+    background: none;
+    border: 2px solid #345A92;
+    border-radius: 30px;
+}
+
+.card-title{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 27px;
+    color: #345A92;
+}
+
+
