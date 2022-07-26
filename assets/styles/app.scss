@@ -1,5 +1,7 @@
+@import 'variables';
+@import 'global';
+@import 'navbar';
 @import "~bootstrap/scss/bootstrap";
-
-body {
-    background-color: lightgray;
-}
+@import 'buttonsAndFrames';
+@import 'home';
+@import 'footer';
