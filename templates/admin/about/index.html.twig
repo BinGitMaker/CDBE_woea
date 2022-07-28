@@ -1,0 +1,38 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Qui suis je? : Admin Cabinet de Bien-Être-Sandrine-Picod{% endblock %}
+
+{% block body %}
+    <h1>Qui suis je? : Admin</h1>
+
+    <table class="table">
+        
+        <tbody>
+        {% for about in abouts %}
+            <tr>
+                <td>Photo de profil : {{ about.illustration }}</td>
+                <td>Sous-titre : {{ about.undertitle }}</td>
+                <td>Titre n°1 : {{ about.title1 }}</td>
+                <td>Description n°1 : {{ about.description1 }}</td>
+                <td>Image n°1 : {{ about.pics1 }}</td>
+                <td>Titre n°2 : {{ about.title2 }}</td>
+                <td>Description n°2 : {{ about.description2 }}</td>
+                <td>Image n°2 : {{ about.pics2 }}</td>
+                <td>Titre n°3 : {{ about.title3 }}</td>
+                <td>Description n°3 : {{ about.description3 }}</td>
+                <td>Image n°3 : {{ about.pics3 }}</td>
+                
+                <td>Actions:
+                    <a href="{{ path('admin_about_edit', {'id': about.id}) }}">Mettre à jour</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_about_new') }}">Nouveau</a>
+{% endblock %}
