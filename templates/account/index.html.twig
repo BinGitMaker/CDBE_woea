@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte : Cabinet de Bien-Être-Sandrine-Picod{% endblock %}
+
+{% block content %}
+
+    <h1>Mon compte</h1>
+    Bienvenue {{ app.user.firstname }} dans votre espace
+
+    <hr>
+    {% if is_granted('ROLE_ADMIN') %}
+    - <a href="/admin">Vous etes admin, accèder au back office.</a> <br/>
+    {% endif %}
+    - <a href="{{ path('account_password') }}">Modifier mon mot de passe.</a> <br/>
+    - Ajouter mes adresses. <br>
+    - Gerer mes commandes. <br>
+
+    <hr>
+
+{% endblock %}
