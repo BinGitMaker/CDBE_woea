@@ -1,0 +1,24 @@
+<nav class="main-nav bg-secondary">
+    <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 250px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+            
+            <span class="fs-3 text-white">Cabinet de Bien-Être</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            {% set links = [
+                {'title': 'ACCUEIL', 'path': 'dashboard'},
+                {'title': 'UTILISATEURS', 'path': 'admin_user_index'},
+                
+            ] %}
+            {% for link in links %}
+                <li class="nav-item">
+                    <a href="{{ path(link.path) }}"
+                       class="nav-link {{ app.request.pathInfo == path(link.path) ? 'active' : 'text-white' }}">
+                        {{ link.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
