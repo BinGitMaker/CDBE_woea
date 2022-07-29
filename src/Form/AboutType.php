@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\About;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -25,7 +26,22 @@ class AboutType extends AbstractType
             ->add('title3', TextType::class)
             ->add('description3', TextareaType::class)
             ->add('pics3', TextType::class)
-            ->add('illustration', FileType::class)
+            ->add('illustration', FileType::class,  [
+                'label' => 'photo',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2M',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/svg+xml'
+                        ],
+                        'mimeTypesMessage' => 'Merci de charger une photo valide',
+                    ])
+                ], 
+            ])
         ;
     }
 
