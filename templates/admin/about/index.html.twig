@@ -10,7 +10,8 @@
         <tbody>
         {% for about in abouts %}
             <tr>
-                <td>Photo de profil : {{ about.illustration }}</td>
+                <td>Photo de profil : <img src="{{ asset('/uploads/images/' ~ about.illustration ) }}" alt=""></td>
+                
                 <td>Sous-titre : {{ about.undertitle }}</td>
                 <td>Titre n°1 : {{ about.title1 }}</td>
                 <td>Description n°1 : {{ about.description1 }}</td>

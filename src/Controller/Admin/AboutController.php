@@ -5,10 +5,12 @@ namespace App\Controller\Admin;
 use App\Entity\About;
 use App\Form\AboutType;
 use App\Repository\AboutRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Service\FileUploaderService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/about', name: 'admin_about_')]
 class AboutController extends AbstractController
@@ -22,15 +24,26 @@ class AboutController extends AbstractController
     }
 
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
-    public function new(Request $request, AboutRepository $aboutRepository): Response
+    public function new(Request $request, AboutRepository $aboutRepository, FileUploaderService $fileUploader): Response
     {
         $about = new About();
         $form = $this->createForm(AboutType::class, $about);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $aboutRepository->add($about, true);
+           
+            $illustration = $form->get('illustration')->getData();
 
+            if($illustration == null){
+                $about->setIllustration(null);
+                
+            }else{
+                $illustrationName = $fileUploader->upload($illustration);
+                $about->setIllustration($illustrationName);
+            }
+
+            $aboutRepository->add($about, true);
+            
             return $this->redirectToRoute('admin_about_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -41,12 +54,23 @@ class AboutController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, About $about, AboutRepository $aboutRepository): Response
+    public function edit(Request $request, About $about, AboutRepository $aboutRepository, FileUploaderService $fileUploader): Response
     {
         $form = $this->createForm(AboutType::class, $about);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            
+            $illustration = $form->get('illustration')->getData();
+
+            if($illustration == null){
+                $about->setIllustration(null);
+
+            }else{
+                $illustrationName = $fileUploader->upload($illustration);
+                $about->setIllustration($illustrationName);
+            }
+            
             $aboutRepository->add($about, true);
 
             return $this->redirectToRoute('admin_about_index', [], Response::HTTP_SEE_OTHER);
