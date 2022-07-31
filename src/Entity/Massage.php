@@ -41,6 +41,10 @@ class Massage
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
+    #[ORM\ManyToOne(inversedBy: 'massages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?MassCategory $massCategory = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -150,6 +154,18 @@ class Massage
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getMassCategory(): ?MassCategory
+    {
+        return $this->massCategory;
+    }
+
+    public function setMassCategory(?MassCategory $massCategory): self
+    {
+        $this->massCategory = $massCategory;
 
         return $this;
     }
