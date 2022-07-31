@@ -31,15 +31,21 @@ class AboutController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-           
+    
             $illustration = $form->get('illustration')->getData();
-
-            if($illustration == null){
-                $about->setIllustration(null);
-                
-            }else{
+            $pics1 = $form->get('pics1')->getData();
+            $pics2 = $form->get('pics2')->getData();
+            $pics3 = $form->get('pics3')->getData();
+            if($illustration && $pics1 && $pics2 && $pics3){
                 $illustrationName = $fileUploader->upload($illustration);
-                $about->setIllustration($illustrationName);
+                $pics1Name = $fileUploader->upload($pics1);
+                $pics2Name = $fileUploader->upload($pics2);
+                $pics3Name = $fileUploader->upload($pics3);
+                $about
+                    ->setIllustration($illustrationName)
+                    ->setPics1($pics1Name)
+                    ->setPics2($pics2Name)
+                    ->setPics3($pics3Name);
             }
 
             $aboutRepository->add($about, true);
@@ -60,17 +66,23 @@ class AboutController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            
+        
             $illustration = $form->get('illustration')->getData();
-
-            if($illustration == null){
-                $about->setIllustration(null);
-
-            }else{
+            $pics1 = $form->get('pics1')->getData();
+            $pics2 = $form->get('pics2')->getData();
+            $pics3 = $form->get('pics3')->getData();
+            if($illustration && $pics1 && $pics2 && $pics3){
                 $illustrationName = $fileUploader->upload($illustration);
-                $about->setIllustration($illustrationName);
+                $pics1Name = $fileUploader->upload($pics1);
+                $pics2Name = $fileUploader->upload($pics2);
+                $pics3Name = $fileUploader->upload($pics3);
+                $about
+                    ->setIllustration($illustrationName)
+                    ->setPics1($pics1Name)
+                    ->setPics2($pics2Name)
+                    ->setPics3($pics3Name);
             }
-            
+        
             $aboutRepository->add($about, true);
 
             return $this->redirectToRoute('admin_about_index', [], Response::HTTP_SEE_OTHER);
