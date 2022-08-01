@@ -1,0 +1,21 @@
+    <p class="mt-4 ">
+        <a class="btn btn-contact btn-light bg-light text-primary" href="#" role="button">CONTACTEZ-MOI &raquo;</a>
+    </p> 
+<br>
+            
+         <h2>A la carte </h2>
+    avec huile sans huile <br>
+
+    <div class="card-massage-list"><!-- card massage -->
+        
+        {% for massage in massages %}
+            <a href="{{ path('massage', {title_massage : massage.title, slug : massCategory.slug}) }}">
+                <h2 ><small class="massage-title">{{ massage.title }}</small></h2>
+            </a> 
+            
+            <span>{{ massage.undertitle }}</span>
+        {% endfor %}
+    </div>
+
+     
+
