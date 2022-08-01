@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ massage.title }} : Cabinet de Bien-Être - Sandrine Picod{% endblock %}
+
+{% block content %}
+
+    <h1 class="d-flex justify-content-center">Mes prestations</h1>
+
+        <div class="">
+            {% include 'massage/_category.html.twig' %}
+        </div>
+    <br>
+    <br>
+   
+        <div class="row"> 
+            <div class="col-left col-12 col-lg-3 d-flex flex-column align-items-center "><!-- col-left -->
+                {% include 'massage/_massagesList.html.twig' %}
+                {# {% include 'massage/_feedback.html.twig' %} #}
+                <p class="mt-4 ">
+                    <a class="btn btn-rdv btn-dark bg-primary text-light" href="#" role="button">PRENEZ RENDEZ-VOUS &raquo;</a>
+                </p>
+            </div><!-- /.col-left -->
+
+            <div class="col-center col-lg-1 "><!-- col-divided -->
+                
+            </div><!-- /.col-divided -->
+
+            <div class="col-right col-12 col-lg-8 p-0"><!-- col-right -->
+                <div class="row">
+                    <div class="col-1"></div>
+                        <section class="container massage-title d-flex justify-content-center my-5">
+                            <div class="col-11 d-flex justify-content-center align-items-center opacity-75 position-relative">
+                                <img class="img-massage bd-placeholder-img bd-placeholder-img-lg " 
+                                src="{{ asset('/uploads/images/' ~ massage.illustration) }}" 
+                                focusable="false" role="img" 
+                                alt="{{ massage.title }}">
+                                <h1 class="position-absolute display-1 text-light text-center">{{ massage.title }}</h1>
+                            </div>
+                        </section>
+                </div>
+
+                <section class="container d-flex justify-content-center p-0" >
+                    {# {% include 'massage/_package.html.twig' %} #}
+                </section>
+                
+                <div>
+                    <div class="row">
+                        <div class="col-1"><i class="fa-solid fa-cloud-question"></i></div>
+                        <div class="col-11">
+                            <h3>Explication</h3>
+                            <p>{{ massage.explication }}</p>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-1"><i class="fa-solid fa-hand-holding-medical"></i></div>
+                        <div class="col-11">
+                            <h3>Problématique</h3>
+                            <p>{{ massage.problem }}</p>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-1"><i class="fa-solid fa-hand-holding-seedling"></i></div>
+                        <div class="col-11">
+                            <h3>Déroulement</h3>
+                            <p>{{ massage.work }}</p>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-1"><i class="fa-solid fa-hand-heart"></i></div>
+                        <div class="col-11">
+                            <h3>Bénéfices</h3>
+                            <p>{{ massage.good }}</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div><!-- /.col-right -->   
+
+        </div>  
+    
+
+{% endblock %}

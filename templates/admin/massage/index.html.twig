@@ -1,0 +1,74 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Gestion des massages : Admin Cabinet de Bien-Être-Sandrine-Picod{% endblock %}
+
+{% block body %}
+<h1 class="d-flex justify-content-center text-bg-info">Gestion des massages</h1>
+
+<div class="row d-flex justify-content-start "> 
+    <button type="button" class="btn btn-success col-2 m-3">
+        <a class="text-decoration-none text-light" href="{{ path('admin_massage_new') }}">
+            CREER UN MASSAGE
+        </a>
+    </button>
+</div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre du massage</th>
+                <th>Catégorie</th>
+                <th>Sous-titre</th>
+                <th>Image du massage</th>
+                <th>Explication</th>
+                <th>Problematique</th>
+                <th>Bienfait</th>
+                <th>Déroulement</th>
+                <th>Huile</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for massage in massages %}
+            <tr>
+                <td>{{ massage.title }}</td>
+                <td>{{ massage.massCategory }}</td>
+                <td>{{ massage.undertitle }}</td>
+                <td>{{ massage.illustration }}</td>
+                <td>{{ massage.explication|slice(0, 150) }}[...]</td>
+                <td>{{ massage.problem|slice(0, 150) }}[...]</td>
+                <td>{{ massage.good|slice(0, 150) }}[...]</td>
+                <td>{{ massage.work|slice(0, 150) }}[...]</td>
+                <td>
+                    {% if massage.oil == 0 %}
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                        </div>
+                    {% else %}
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                      </div>
+                    {% endif %}
+                    
+                </td>
+                <td>
+                    <div class="d-flex flex-row"></div>
+                    <button type="button" class="btn btn-primary mb-2">
+                        <a class="text-decoration-none text-light" href="{{ path('admin_massage_edit', {'id': massage.id}) }}">
+                            MODIFIER 
+                        </a>
+                    </button>
+                    {{ include('admin/massage/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">il n'y a pas de massage pour le moment</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

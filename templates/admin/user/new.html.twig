@@ -4,8 +4,7 @@
 
 {% block body %}
     <h1 class="d-flex justify-content-center text-bg-info">Créer un nouvel utilisateur</h1>
-
+    <a class="h5 p-3" href="{{ path('admin_user_index') }}"><< Retour aux Utilisateurs</a>
     {{ include('admin/user/_form.html.twig') }}
-
-    <a href="{{ path('admin_user_index') }}">Retour aux Utilisateurs</a>
+    
 {% endblock %}
