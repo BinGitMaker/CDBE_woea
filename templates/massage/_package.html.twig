@@ -1,0 +1,58 @@
+<div class="col-12 card-package">
+  <!-- card pack-Tarifs -->
+
+  <h3 class="col-12 ">Tarifs</h3>
+
+  <div class="row">
+    {% if massage.pack is empty %}
+        <li class="list-unstyled">ce massage n'a pas de formule</li>
+        {{ dump(massage) }}
+    {% else %}
+    <div class="col-6 p-0"> <!-- colonne Tarif a la séance-->
+      {% for packSolos in massage %}
+        
+          <h4>{{ packSolo.name }}</h4>
+            <ul class="p-0">
+              {% for pack in massage.pack %}
+                {% if pack.isSolo == 1 %}
+                  
+                    <li class="list-unstyled">
+                      {{ pack.duration }}min : {{ pack.price }}€ {{ pack.content }}
+                    </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+
+      {% endfor %}
+    </div><!-- FIN colonne Tarif a la séance-->
+
+    <div class="col-6 p-0"> <!-- colonne Tarif au forfait-->
+      {% for packCatMulti in massage %}
+        
+          <h4>{{ packCatMulti.name }}</h4>
+
+            <ul class="p-0">
+              {% for pack in massage.pack %}
+                {% if pack.isSolo == 0 %}
+                  
+                    <li class="list-unstyled">
+                      {{ pack.duration }}min : {{ pack.price }}€ {{ pack.content }}
+                    </li>
+                  
+                {% endif %}
+              {% endfor %}
+            </ul>
+
+      {% endfor %}
+    </div><!-- FIN colonne Tarif au fofait-->
+    
+  
+    {% for pack in massage.packs %}
+      <div class="d-flex justify-content-center">
+        <p>{{ pack.modality }}</p>
+      </div>
+    {% endfor %}
+
+  {% endif %}
+</div>
+</div>

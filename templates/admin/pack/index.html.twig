@@ -1,0 +1,45 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Pack index{% endblock %}
+
+{% block body %}
+    <h1>Pack index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Time</th>
+                <th>Price</th>
+                <th>Content</th>
+                <th>Name</th>
+                <th>Séance seule</th>
+                <th>Modality</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pack in packs %}
+            <tr>
+                
+                <td>{{ pack.time }}min</td>
+                <td>{{ pack.price }}€</td>
+                <td>{{ pack.content }}</td>
+                <td>{{ pack.name }}</td>
+                <td>{{ pack.isSolo ? 'Oui' : 'Non' }}</td>
+                <td>{{ pack.modality }}</td>
+                <td>
+                    
+                    <a href="{{ path('admin_pack_edit', {'id': pack.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_pack_new') }}">Create new</a>
+{% endblock %}
