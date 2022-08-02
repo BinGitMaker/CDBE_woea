@@ -4,9 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Massage;
 use App\Entity\MassCategory;
+use App\Repository\PackRepository;
 use App\Repository\MassageRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\PackCatSoloRepository;
 use App\Repository\MassCategoryRepository;
+use App\Repository\PackCatMultiRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -60,7 +63,8 @@ class MassageController extends AbstractController
                             MassCategoryRepository $massCategories, 
                             Massage $massage,
                             MassageRepository $massages,
-                            
+                            PackCatMultiRepository $packMultis,
+                            PackCatSoloRepository $packSolos
                         ): Response
     { 
         
@@ -79,8 +83,8 @@ class MassageController extends AbstractController
             'massCategory' => $massCategory,
             'massages' => $massages->findByMassCategory($massCategory),
             'massage' => $massage,
-            
-            
+            'packMultis' => $packMultis->findAll(),
+            'packSolos' => $packSolos->findAll(),
         ]);
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MassageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -44,6 +46,14 @@ class Massage
     #[ORM\ManyToOne(inversedBy: 'massages')]
     #[ORM\JoinColumn(nullable: false)]
     private ?MassCategory $massCategory = null;
+
+    #[ORM\ManyToMany(targetEntity: Pack::class, inversedBy: 'packHasMassages')]
+    private Collection $pack;
+
+    public function __construct()
+    {
+        $this->pack = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -166,6 +176,30 @@ class Massage
     public function setMassCategory(?MassCategory $massCategory): self
     {
         $this->massCategory = $massCategory;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Pack>
+     */
+    public function getPack(): Collection
+    {
+        return $this->pack;
+    }
+
+    public function addPack(Pack $pack): self
+    {
+        if (!$this->pack->contains($pack)) {
+            $this->pack[] = $pack;
+        }
+
+        return $this;
+    }
+
+    public function removePack(Pack $pack): self
+    {
+        $this->pack->removeElement($pack);
 
         return $this;
     }
