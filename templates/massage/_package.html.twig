@@ -9,45 +9,40 @@
         {{ dump(massage) }}
     {% else %}
     <div class="col-6 p-0"> <!-- colonne Tarif a la séance-->
-      {% for packSolos in massage %}
-        
-          <h4>{{ packSolo.name }}</h4>
+        <h4>{{ massage.packCatSolo }}</h4>
             <ul class="p-0">
               {% for pack in massage.pack %}
                 {% if pack.isSolo == 1 %}
-                  
+                 
                     <li class="list-unstyled">
-                      {{ pack.duration }}min : {{ pack.price }}€ {{ pack.content }}
+                      {{ pack.time }}min : {{ pack.price }}€ {{ pack.content }}
                     </li>
                 {% endif %}
               {% endfor %}
             </ul>
 
-      {% endfor %}
+      
     </div><!-- FIN colonne Tarif a la séance-->
 
     <div class="col-6 p-0"> <!-- colonne Tarif au forfait-->
-      {% for packCatMulti in massage %}
-        
-          <h4>{{ packCatMulti.name }}</h4>
-
+        <h4>{{ massage.packCatMulti }}</h4>
             <ul class="p-0">
               {% for pack in massage.pack %}
                 {% if pack.isSolo == 0 %}
                   
                     <li class="list-unstyled">
-                      {{ pack.duration }}min : {{ pack.price }}€ {{ pack.content }}
+                      {{ pack.time }}min : {{ pack.price }}€ {{ pack.content }}
                     </li>
                   
                 {% endif %}
               {% endfor %}
             </ul>
 
-      {% endfor %}
+      
     </div><!-- FIN colonne Tarif au fofait-->
     
   
-    {% for pack in massage.packs %}
+    {% for pack in massage.pack %}
       <div class="d-flex justify-content-center">
         <p>{{ pack.modality }}</p>
       </div>

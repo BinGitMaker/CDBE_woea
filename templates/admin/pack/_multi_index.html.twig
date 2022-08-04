@@ -1,0 +1,45 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Gestion des intitulés multiples : Admin Cabinet de Bien-Être-Sandrine-Picod{% endblock %}
+
+{% block body %}
+    <h1 class="d-flex justify-content-center text-bg-info">Titres des forfaits multiples</h1>
+
+    <a class="h5 p-3" href="{{ path('admin_massage_index') }}"><< Retour aux massages</a>
+
+    <div class="row d-flex justify-content-start "> 
+        <button type="button" class="btn btn-success col-2 m-3">
+            <a class="text-decoration-none text-light" href="{{ path('admin_pack_multi_new') }}">
+                CREER UN TITRE
+            </a>
+        </button>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for packCatMulti in packCatMultis %}
+            <tr>
+                <td>{{ packCatMulti.name }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary mb-2">
+                        <a class="text-decoration-none text-light" href="{{ path('admin_pack_multi_edit', {'id': packCatMulti.id}) }}">
+                            MODIFIER 
+                        </a>
+                    </button> 
+                    {{ include('admin/pack/_multi_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">il n'y a pas de titre de forfait multiple pour le moment</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

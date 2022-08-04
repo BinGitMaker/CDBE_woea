@@ -1,21 +1,33 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Pack index{% endblock %}
+{% block title %}Gestion des massages : Admin Cabinet de Bien-Être-Sandrine-Picod{% endblock %}
 
 {% block body %}
-    <h1>Pack index</h1>
+    <h1 class="d-flex justify-content-center text-bg-info">Gestion des forfaits</h1>
+
+    <a class="h5 p-3" href="{{ path('admin_massage_index') }}"><< Retour aux massages</a>
+
+    <div class="row d-flex justify-content-start "> 
+        <button type="button" class="btn btn-success col-2 m-3">
+            <a class="text-decoration-none text-light" href="{{ path('admin_pack_new') }}">
+                CREER UN FORFAIT
+            </a>
+        </button>
+    </div>
+
+    <div class="text-danger">*** Pour des raisons de mise en page le site devra toujours respecter l'ecriture du NOM [title]-[durée]-[prix]-[public] ***</div>
 
     <table class="table">
         <thead>
             <tr>
                 
-                <th>Time</th>
-                <th>Price</th>
-                <th>Content</th>
-                <th>Name</th>
+                <th>Durée</th>
+                <th>Pricx</th>
+                <th>Public</th>
+                <th>Nom (descriptif)</th>
                 <th>Séance seule</th>
-                <th>Modality</th>
-                <th>actions</th>
+                <th>Modalité</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -29,8 +41,12 @@
                 <td>{{ pack.isSolo ? 'Oui' : 'Non' }}</td>
                 <td>{{ pack.modality }}</td>
                 <td>
-                    
-                    <a href="{{ path('admin_pack_edit', {'id': pack.id}) }}">edit</a>
+                    <button type="button" class="btn btn-primary mb-2">
+                        <a class="text-decoration-none text-light" href="{{ path('admin_pack_edit', {'id': pack.id}) }}">
+                            MODIFIER 
+                        </a>
+                    </button>
+                    {{ include('admin/pack/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
@@ -41,5 +57,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_pack_new') }}">Create new</a>
 {% endblock %}
