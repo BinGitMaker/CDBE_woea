@@ -2,8 +2,11 @@
 
 namespace App\Form;
 
-use App\Entity\Massage;
 use App\Entity\MassCategory;
+use App\Entity\Massage;
+use App\Entity\Pack;
+use App\Entity\PackCatSolo;
+use App\Entity\PackCatMulti;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -69,6 +72,25 @@ class MassageType extends AbstractType
                 'label' => 'Catégorie',
                 'class' => MassCategory::class,
             ])
+            ->add('pack', EntityType::class, [
+                'choice_label' => 'name',
+                'label' => 'Forfait',
+                'class' => Pack::class,
+                'multiple' => true,
+                'expanded' => true,
+            ])
+             ->add('packCatSolo', EntityType::class, [
+                'choice_label' => 'name',
+                'label' => 'Intitulé du groupe de forfait seul',
+                'class' => PackCatSolo::class,
+                'expanded' => true,
+            ])
+            ->add('packCatMulti', EntityType::class, [
+                'choice_label' => 'name',
+                'label' => 'Intitulé du groupe de forfait multiple',
+                'class' => PackCatMulti::class,
+                'expanded' => true,
+            ]) 
         ;
     }
 

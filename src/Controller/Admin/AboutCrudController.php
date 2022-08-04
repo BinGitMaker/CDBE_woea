@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/about', name: 'admin_about_')]
-class AboutController extends AbstractController
+class AboutCrudController extends AbstractController
 {
     #[Route('/', name: 'index', methods: ['GET'])]
     public function index(AboutRepository $aboutRepository): Response

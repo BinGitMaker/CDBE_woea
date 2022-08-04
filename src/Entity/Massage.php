@@ -50,6 +50,12 @@ class Massage
     #[ORM\ManyToMany(targetEntity: Pack::class, inversedBy: 'packHasMassages')]
     private Collection $pack;
 
+    #[ORM\ManyToOne(inversedBy: 'massages')]
+    private ?PackCatSolo $packCatSolo = null;
+
+    #[ORM\ManyToOne(inversedBy: 'massages')]
+    private ?PackCatMulti $packCatMulti = null;
+
     public function __construct()
     {
         $this->pack = new ArrayCollection();
@@ -200,6 +206,30 @@ class Massage
     public function removePack(Pack $pack): self
     {
         $this->pack->removeElement($pack);
+
+        return $this;
+    }
+
+    public function getPackCatSolo(): ?PackCatSolo
+    {
+        return $this->packCatSolo;
+    }
+
+    public function setPackCatSolo(?PackCatSolo $packCatSolo): self
+    {
+        $this->packCatSolo = $packCatSolo;
+
+        return $this;
+    }
+
+    public function getPackCatMulti(): ?PackCatMulti
+    {
+        return $this->packCatMulti;
+    }
+
+    public function setPackCatMulti(?PackCatMulti $packCatMulti): self
+    {
+        $this->packCatMulti = $packCatMulti;
 
         return $this;
     }

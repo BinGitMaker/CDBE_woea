@@ -1,13 +1,12 @@
 {% extends 'admin/base.html.twig' %}
 
-{% block title %}Edit Pack{% endblock %}
+{% block title %}Modifier le forfait{% endblock %}
 
 {% block body %}
-    <h1>Edit Pack</h1>
+<h1 class="d-flex justify-content-center text-bg-info">Modifier le forfait</h1>
 
-    {{ include('admin/pack/_form.html.twig', {'button_label': 'Update'}) }}
+<a class="h5 p-3" href="{{ path('admin_pack_index') }}"><< Retour</a>
 
-    <a href="{{ path('admin_pack_index') }}">back to list</a>
+    {{ include('admin/pack/_form.html.twig', {'button_label': 'Valider la modification'}) }}
 
-    {{ include('admin/pack/_delete_form.html.twig') }}
 {% endblock %}

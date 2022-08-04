@@ -11,64 +11,118 @@
             CREER UN MASSAGE
         </a>
     </button>
+
+    <button type="button" class="btn btn-info col-2 m-3">
+        <a class="text-decoration-none text-primary" href="{{ path('admin_mass_category_index') }}">
+            CATÉGORIES
+        </a>
+    </button> 
+
+    <button type="button" class="btn btn-info col-2 m-3">
+        <a class="text-decoration-none text-primary" href="{{ path('admin_pack_solo_index') }}">
+            TITRES SIMPLE
+        </a>
+    </button>
+
+    <button type="button" class="btn btn-info col-2 m-3">
+        <a class="text-decoration-none text-primary" href="{{ path('admin_pack_multi_index') }}">
+            TITRES MULTIPLE
+        </a>
+    </button>
+
+    <button type="button" class="btn btn-info col-2 m-3">
+        <a class="text-decoration-none text-primary" href="{{ path('admin_pack_index') }}">
+            FORFAITS
+        </a>
+    </button>
 </div>
-
+    
     <table class="table">
-        <thead>
-            <tr>
-                <th>Titre du massage</th>
-                <th>Catégorie</th>
-                <th>Sous-titre</th>
-                <th>Image du massage</th>
-                <th>Explication</th>
-                <th>Problematique</th>
-                <th>Bienfait</th>
-                <th>Déroulement</th>
-                <th>Huile</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for massage in massages %}
-            <tr>
-                <td>{{ massage.title }}</td>
-                <td>{{ massage.massCategory }}</td>
-                <td>{{ massage.undertitle }}</td>
-                <td>{{ massage.illustration }}</td>
-                <td>{{ massage.explication|slice(0, 150) }}[...]</td>
-                <td>{{ massage.problem|slice(0, 150) }}[...]</td>
-                <td>{{ massage.good|slice(0, 150) }}[...]</td>
-                <td>{{ massage.work|slice(0, 150) }}[...]</td>
-                <td>
-                    {% if massage.oil == 0 %}
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                            <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+            {% for massage in massages %}
+                <div class="card p-2 my-3 mx-5">
+                    <div class="row rowTitle d-flex flex-row">
+                        <div class="col-2">
+                            <strong>Image du massage</strong><br>
+                            <img class="bd-placeholder-img bd-placeholder-img-lg img-fluid " 
+                            src="{{ asset('/uploads/images/' ~ massage.illustration) }}" 
+                            
+                            alt="{{ massage.illustration }}">
+                           
                         </div>
-                    {% else %}
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                      </div>
-                    {% endif %}
-                    
-                </td>
-                <td>
-                    <div class="d-flex flex-row"></div>
-                    <button type="button" class="btn btn-primary mb-2">
-                        <a class="text-decoration-none text-light" href="{{ path('admin_massage_edit', {'id': massage.id}) }}">
-                            MODIFIER 
-                        </a>
-                    </button>
-                    {{ include('admin/massage/_delete_form.html.twig') }}
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="11">il n'y a pas de massage pour le moment</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                        <div class="col-8">
+                            <p class="d-flex flex-row justify-content-center"><strong>Catégorie : </strong>{{ massage.massCategory }}</p>
+                            <p><strong class="d-flex flex-row justify-content-center">Titre du massage : </strong><h1 class="d-flex justify-content-center">{{ massage.title }}</h1></p>
+                        </div>
+                        <div class="col-2">
+                            <div class="d-flex flex-column">
+                                <button type="button" class="btn btn-primary mb-2">
+                                    <a class="text-decoration-none text-light" href="{{ path('admin_massage_edit', {'id': massage.id}) }}">
+                                        MODIFIER 
+                                    </a>
+                                </button>
+                                {{ include('admin/massage/_delete_form.html.twig') }}
+                            </div>
+                        </div>
+                    </div><!--END OF ROW TITLE-->
+                    <div class="row rowBody">
+                        <div class="col-3">
+                            <strong>Sous-titre</strong><br>
+                            <p>{{ massage.undertitle }}</p>
+                            <strong>Huile</strong><br>
+                            {% if massage.oil == 0 %}
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                                    </div>
+                                {% else %}
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                                </div>
+                            {% endif %}<br>
+                            
+                        </div>
 
+                        <div class="col-3">
+                            <strong>Liste des </strong><h6> "{{ massage.packCatSolo}}"</h6>
+                            <ul>
+                                {% for pack in massage.pack %}
+                                    {% if pack.isSolo == 1 %}
+                                        <li>{{ pack.name }}</li> 
+                                    {% endif %} 
+                                {% endfor %}
+                            </ul>
+
+                            <strong>Liste des </strong><h6>"{{ massage.packCatMulti}}"</h6>
+                            <ul>
+                                {% for pack in massage.pack %}
+                                    {% if pack.isSolo == 0 %}
+                                        <li>{{ pack.name }}</li> 
+                                    {% endif %} 
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-3">
+                            <strong>Explication</strong><br>
+                            <p>{{ massage.explication|slice(0, 150) }}[...]</p><br>
+                            <strong>Problematique</strong><br>
+                            <p>{{ massage.problem|slice(0, 150) }}[...]</p>
+                        </div>
+                       
+                        <div class="col-3">
+                            <strong>Bienfait</strong><br>
+                            <p>{{ massage.good|slice(0, 150) }}[...]</p><br>
+                            <strong>Déroulement</strong><br>
+                            <p>{{ massage.work|slice(0, 150) }}[...]</p>
+                        </div>
+                        
+                    </div><!--END OF ROW BODY-->
+                </div> <!--END OF CARD-->
+            {% else %}
+                <tr>
+                    <td colspan="11">il n'y a pas de massage pour le moment</td>
+                </tr>
+            {% endfor %}
+    </table>
 
 {% endblock %}

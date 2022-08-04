@@ -5,24 +5,27 @@ namespace App\Controller\Admin;
 use App\Entity\Pack;
 use App\Form\PackType;
 use App\Repository\PackRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\MassageRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('admin/forfait', name: 'admin_pack_')]
-class AdminPackCrudController extends AbstractController
+class PackCrudController extends AbstractController
 {
+    
     #[Route('/', name: 'index', methods: ['GET'])]
     public function index(PackRepository $packRepository): Response
-    {
+    {   
         return $this->render('admin/pack/index.html.twig', [
             'packs' => $packRepository->findAll(),
         ]);
     }
 
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
-    public function new(Request $request, PackRepository $packRepository): Response
+    public function new(Request $request, MassageRepository $massageRepository, PackRepository $packRepository): Response
     {
         $pack = new Pack();
         $form = $this->createForm(PackType::class, $pack);
@@ -36,12 +39,13 @@ class AdminPackCrudController extends AbstractController
 
         return $this->renderForm('admin/pack/new.html.twig', [
             'pack' => $pack,
+            'massages' => $massageRepository->findAll(),
             'form' => $form,
         ]);
     }
 
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Pack $pack, PackRepository $packRepository): Response
+    public function edit(Request $request, Pack $pack, PackRepository $packRepository ): Response
     {
         $form = $this->createForm(PackType::class, $pack);
         $form->handleRequest($request);
