@@ -1,53 +1,62 @@
-<div class="col-12 card-package">
+<div class="offset-1 col-10 card-package">
   <!-- card pack-Tarifs -->
-
-  <h3 class="col-12 ">Tarifs</h3>
+  <div class="row">
+    <h3 class="col-12 d-flex justify-content-center">Tarifs</h3>
+  </div>
+  
 
   <div class="row">
     {% if massage.pack is empty %}
         <li class="list-unstyled">ce massage n'a pas de formule</li>
-        {{ dump(massage) }}
+        
     {% else %}
     <div class="col-6 p-0"> <!-- colonne Tarif a la séance-->
+      <div class="offset-1 col-10">
         <h4>{{ massage.packCatSolo }}</h4>
             <ul class="p-0">
               {% for pack in massage.pack %}
                 {% if pack.isSolo == 1 %}
                  
                     <li class="list-unstyled">
-                      {{ pack.time }}min : {{ pack.price }}€ {{ pack.content }}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill mx-1" viewBox="0 0 16 16">
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                      </svg>{{ pack.time }}min : {{ pack.price }}€ {{ pack.content }}
                     </li>
                 {% endif %}
               {% endfor %}
             </ul>
-
-      
+      </div>
     </div><!-- FIN colonne Tarif a la séance-->
 
     <div class="col-6 p-0"> <!-- colonne Tarif au forfait-->
+      <div class="offset-1 col-10">
         <h4>{{ massage.packCatMulti }}</h4>
             <ul class="p-0">
               {% for pack in massage.pack %}
                 {% if pack.isSolo == 0 %}
                   
                     <li class="list-unstyled">
-                      {{ pack.time }}min : {{ pack.price }}€ {{ pack.content }}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-right-fill mx-1" viewBox="0 0 16 16">
+                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                      </svg>{{ pack.time }}min : {{ pack.price }}€ {{ pack.content }}
                     </li>
                   
                 {% endif %}
               {% endfor %}
             </ul>
-
-      
+      </div>
     </div><!-- FIN colonne Tarif au fofait-->
     
-  
-    {% for pack in massage.pack %}
-      <div class="d-flex justify-content-center">
-        <p>{{ pack.modality }}</p>
-      </div>
-    {% endfor %}
+      {% for pack in massage.pack %}
+        {% if pack.modality == true %}
+            <div class="d-flex justify-content-center">
+              <p>{{ pack.modality }}</p>
+            </div>
+        {% else %}
 
-  {% endif %}
+        {% endif %}<!--if pack.modality is true-->
+      {% endfor %}<!-- FIN ligne Modality-->
+
+  {% endif %} <!--if massage.pack is empty-->
 </div>
 </div>
