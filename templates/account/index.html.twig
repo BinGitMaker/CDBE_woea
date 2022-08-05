@@ -9,7 +9,7 @@
 
     <hr>
     {% if is_granted('ROLE_ADMIN') %}
-    - <a href="/admin">Vous etes admin, accèder au back office.</a> <br/>
+    - <a href="/admin/about">Vous etes admin, accèder au back office.</a> <br/>
     {% endif %}
     - <a href="{{ path('account_password') }}">Modifier mon mot de passe.</a> <br/>
     - Ajouter mes adresses. <br>

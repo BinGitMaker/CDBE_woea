@@ -1,0 +1,11 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modifier les avis{% endblock %}
+
+{% block body %}
+    <h1 class="d-flex justify-content-center text-bg-info">Modifier l'avis'</h1>
+
+    <a href="{{ path('admin_feedback_index') }}"><< Retour aux avis</a>
+
+    {{ include('admin/feedback/_form.html.twig', {'button_label': 'Valider la modification'}) }}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avis : Cabinet de Bien-Être-Sandrine-Picod{% endblock %}
+
+{% block content %}
+
+    <h1 class="d-flex justify-content-center">Ils ont aimé l'experience</h1>
+
+    <div class="row">
+        
+        <div class="col-3">
+
+        </div><!-- /.left col -->
+
+        <div class="col-2">
+
+        </div><!-- /.left col -->
+        
+        <div class="col-7">
+            {% for feedback in feedbacks %}
+
+                <section class="card-feedback">
+                    <h3>{{ feedback.title }}</h3>
+                    <p>{{ feedback.content }}</p>
+                    <h2 class="d-flex justify-content-end">{{ feedback.name }}</h2>
+                </section>
+            
+            {% endfor %}
+        </div><!-- /.right col -->
+
+    </div>
+    
+{% endblock %}

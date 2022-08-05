@@ -6,16 +6,16 @@
     <div class="collapse navbar-collapse order-md-2" id="navbarCollapse">
         <ul class="navbar-nav">
            {% set links = [
-                {'title': 'Qui-suis-je?', 'path': 'home'},
-                {'title': 'Mes prestations', 'path': 'massCategory'},
-                {'title': 'Avis', 'path': 'home'},
-                {'title': 'E-Boutique', 'path': 'home'}
+                {'title': 'Qui-suis-je?', 'path': 'home', 'slug':null},
+                {'title': 'Mes prestations', 'path': 'massage_by_category', 'slug': 'massages-detente-relaxation'},
+                {'title': 'Avis', 'path': 'feedback', 'slug':null},
+                {'title': 'E-Boutique', 'path': 'home', 'slug':null}
             ] %}
             {% for link in links %}
                 <li class="nav-item">
-                    <a class="nav-title {{ app.request.pathinfo == path(link.path) ? 'active' }}"
-                            {{ app.request.pathinfo == path(link.path) ? 'aria-current="page"' }} 
-                            href="{{ path(link.path) }}">
+                    <a class="nav-title {{ app.request.pathinfo == path(link.path, {'slug': link.slug}) ? 'active' }}"
+                            {{ app.request.pathinfo == path(link.path, {'slug': link.slug}) ? 'aria-current="page"' }} 
+                            href="{{ path(link.path, {'slug': link.slug}) }}">
                         {{ link.title }}
                     </a>
                 </li>
