@@ -3,8 +3,8 @@
     {% for feedback in feedbacks %}
 
         <section class="card-feedback-best">
-            <h3>{{ feedback.title }}</h3>
-            <p>{{ feedback.content }}</p>
+            <h3 class="">{{ feedback.title }}</h3>
+            <p class="m-0">{{ feedback.content|slice(0, 100) }} (...)</p>
             <h2 class="d-flex justify-content-end feedback-name">{{ feedback.name }}</h2>
         </section>
     
