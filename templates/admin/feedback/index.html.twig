@@ -1,0 +1,44 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Feedback index{% endblock %}
+
+{% block body %}
+<h1 class="d-flex justify-content-center text-bg-info">Gestion des avis</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titre de l'avis</th>
+                <th>Descriptif</th>
+                <th>Nom du rédacteur</th>
+                <th>A la une</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for feedback in feedback %}
+            <tr>
+                <td>{{ feedback.title }}</td>
+                <td>{{ feedback.content }}</td>
+                <td>{{ feedback.name }}</td>
+                <td>{{ feedback.isBest ? 'Oui' : 'Non' }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary mb-2">
+                        <a class="text-decoration-none text-light" href="{{ path('admin_feedback_edit', {'id': feedback.id}) }}">
+                            MODIFIER 
+                        </a>
+                    </button>
+                    {{ include('admin/feedback/_delete_form.html.twig') }}
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">il n'y a pas d'avis pour le moment</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_feedback_new') }}">Create new</a>
+{% endblock %}

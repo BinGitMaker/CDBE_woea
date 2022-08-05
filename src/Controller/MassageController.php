@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Massage;
+use App\Entity\Feedback;
 use App\Entity\MassCategory;
 use App\Repository\PackRepository;
 use App\Repository\MassageRepository;
@@ -10,6 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\PackCatSoloRepository;
 use App\Repository\MassCategoryRepository;
 use App\Repository\PackCatMultiRepository;
+use App\Repository\FeedbackRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -76,7 +78,7 @@ class MassageController extends AbstractController
             return $this->redirectToRoute('massage_by_category');
         }
 
-        
+        $feedbacks = $this->entityManager->getRepository(Feedback::class)->findByIsBest(1);        
         
         return $this->render('massage/show.html.twig', [
             'massCategories' => $massCategories->findAll(),
@@ -85,6 +87,7 @@ class MassageController extends AbstractController
             'massage' => $massage,
             'packMultis' => $packMultis->findAll(),
             'packSolos' => $packSolos->findAll(),
+            'feedbacks' => $feedbacks,
         ]);
     }
 }
