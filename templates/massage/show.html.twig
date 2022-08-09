@@ -6,7 +6,7 @@
 
     <h1 class="d-flex justify-content-center">Mes prestations</h1>
 
-        <div class="">
+        <div class="mt-4">
             {% include 'massage/_category.html.twig' %}
         </div>
     <br>
@@ -14,8 +14,10 @@
    
         <div class="row"> 
             <div class="col-left colMassage col-12 col-lg-3 d-flex flex-column align-items-center "><!-- col-left -->
-                {% include 'massage/_massagesList.html.twig' %}
-                {% include 'massage/_feedback.html.twig' %}
+                
+                    {% include 'massage/_massagesList.html.twig' %}
+                
+                <div class="d-none d-lg-flex flex-lg-column">{% include 'massage/_feedback.html.twig' %}</div>
                 <p class="mt-4 ">
                     <a class="btn btn-rdv btn-dark bg-primary text-light" href="#" role="button">PRENEZ RENDEZ-VOUS &raquo;</a>
                 </p>
@@ -102,7 +104,9 @@
                     </div>
                     
                 </div>
-
+                <div class="d-lg-none d-flex flex-column">
+                    {% include 'massage/_feedback.html.twig' %}
+                </div>
             </div><!-- /.col-right -->   
 
         </div>  
