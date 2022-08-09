@@ -26,7 +26,7 @@ class ProductType extends AbstractType
                 'label' => 'Slug (ecrire-ainsi-le-slug)',
                 ])
             ->add('illustration', FileType::class, [
-                'label' => 'photo du Massage',
+                'label' => 'photo du Produit',
                 'mapped' => false,
                 'constraints' => [
                     new File([
