@@ -7,7 +7,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class FileUploaderService
 {
     private $targetDirectory;
-    private $slugger;
 
     public function __construct($targetDirectory)
     {
