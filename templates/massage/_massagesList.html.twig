@@ -49,10 +49,10 @@
 
     <!-- MOBIL VIEW -->
 
-    <div class="button-massage-list row"><!-- button massage -->
+    <div class="button-massage-list row "><!-- button massage -->
         
         {% for massage in massages %}
-            <div class="my-2">
+            <div class="my-2 d-flex justify-content-center">
                 <a class="button-massage btn" href="{{ path('massage', {title_massage : massage.title, slug : massCategory.slug}) }}" role="button">
                 
                     {% if massage.oil == 1 %}
