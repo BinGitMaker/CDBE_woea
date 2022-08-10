@@ -4,6 +4,15 @@
 a.btn-contact{
     box-shadow: 0px 4px 4px #B6DFE4;
     border-radius: 60px; 
+    width: 15rem;
+    font-weight: bolder;
+}
+
+a.btn-mesPresta{
+    box-shadow: 0px 4px 4px #B6DFE4;
+    border-radius: 60px; 
+    width: 20rem;
+    font-weight: bolder;
 }
 
 /* HOME/EXT ------------------------- */
@@ -41,6 +50,13 @@ a.btn-contact{
    
 }
 
+.img-massage{
+    border-radius: 20px;
+    min-height: 50vh; 
+    min-width: 80vh;
+   
+}
+
 .card-feedback-best{
     background-image: linear-gradient(180deg, #B6DFE4 0%, #DEF0F2 52.08%, #ECF2F5 100%);
     margin: 0.8rem 0rem;
@@ -64,7 +80,7 @@ a.btn-contact{
 
 .card-package{
     background-image: linear-gradient(180deg, #B6DFE4 0%, #DEF0F2 52.08%, #ECF2F5 100%);
-    margin: 2rem;
+    margin: 0rem 2rem 2rem 2rem;
     padding: 1.5rem 1.8rem 0.5rem 1.8rem; //top - right - bottom - left
     box-shadow: 0px 4px 4px #B6DFE4;
     border-radius: 15px;
@@ -91,9 +107,22 @@ a.btn-contact{
 /* PAGE AVIS - CARD ------------------------- */
 .card-feedback{
     background-image: linear-gradient(180deg, #B6DFE4 0%, #DEF0F2 52.08%, #ECF2F5 100%);
-    margin: 2rem;
-    padding: 1.5rem 1.8rem 0.5rem 1.8rem; //top - right - bottom - left
+    margin: 0px;
+    margin-block: 1rem;
+    padding: 1.5rem 1.8rem 0.5rem 1.8rem; //top - right - bottom - left 
     box-shadow: 0px 4px 4px #B6DFE4;
     border-radius: 15px;
     color:#345A92;
 }
+
+.fb-title{
+    font-size: larger;
+}
+
+.intervention-feedbackCard{
+    max-width: 30rem;
+    background: none;
+    border: 2px solid #345A92;
+    border-radius: 30px;
+}
+

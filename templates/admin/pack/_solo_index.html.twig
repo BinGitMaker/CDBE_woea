@@ -1,0 +1,45 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Gestion des intitulés simples : Admin Cabinet de Bien-Être-Sandrine-Picod{% endblock %}
+
+{% block body %}
+    <h1 class="d-flex justify-content-center text-bg-info">Titres des forfaits simples</h1>
+
+    <a class="h5 p-3" href="{{ path('admin_massage_index') }}"><< Retour aux massages</a>
+
+    <div class="row d-flex justify-content-start "> 
+        <button type="button" class="btn btn-success col-2 m-3">
+            <a class="text-decoration-none text-light" href="{{ path('admin_pack_solo_new') }}">
+                CREER UN TITRE
+            </a>
+        </button>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for packCatSolo in packCatSolos %}
+            <tr>
+                <td>{{ packCatSolo.name }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary mb-2">
+                        <a class="text-decoration-none text-light" href="{{ path('admin_pack_solo_edit', {'id': packCatSolo.id}) }}">
+                            MODIFIER 
+                        </a>
+                    </button> 
+                    {{ include('admin/pack/_solo_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">il n'y a pas de titre de forfait simple pour le moment</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

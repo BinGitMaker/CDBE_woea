@@ -1,0 +1,10 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Nouveau Produit{% endblock %}
+
+{% block body %}
+    <h1 class="d-flex justify-content-center text-bg-info">Créer un nouveau produit</h1>
+    <a class="h5 p-3 mb-4" href="{{ path('admin_product_index') }}"><< Retour aux Produits</a>
+    {{ include('admin/product/_form.html.twig') }}
+    
+{% endblock %}

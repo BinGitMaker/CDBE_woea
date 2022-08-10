@@ -1,20 +1,22 @@
-<nav class="main-nav bg-secondary">
+<nav class="main-nav bg-info">
     <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 250px;">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
             
-            <span class="fs-3 text-white">Cabinet de Bien-Être</span>
+            <span class="fs-3 text-primary">Cabinet<br> de Bien-Être</span>
         </a>
-        <hr>
+        <hr class="text-primary">
         <ul class="nav nav-pills flex-column mb-auto">
             {% set links = [
-                {'title': 'ACCUEIL', 'path': 'dashboard'},
+                {'title': 'QUI-SUIS-JE', 'path': 'admin_about_index'},
                 {'title': 'UTILISATEURS', 'path': 'admin_user_index'},
-                
+                {'title': 'MASSAGES', 'path': 'admin_massage_index'},
+                {'title': 'AVIS', 'path':'admin_feedback_index'},
+                {'title': 'PRODUITS', 'path':'admin_product_index'},
             ] %}
             {% for link in links %}
                 <li class="nav-item">
                     <a href="{{ path(link.path) }}"
-                       class="nav-link {{ app.request.pathInfo == path(link.path) ? 'active' : 'text-white' }}">
+                       class="nav-link {{ app.request.pathInfo == path(link.path) ? 'active' : 'text-primary' }}">
                         {{ link.title }}
                     </a>
                 </li>

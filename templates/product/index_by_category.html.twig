@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% for prodCategory in prodCategories %}{{ prodCategory.name }}{% endfor %} : Cabinet de Bien-Être - Sandrine Picod{% endblock %}
+
+{% block content %}
+
+    <h1 class="d-flex justify-content-center">Mes produits</h1>
+
+        <div class="">
+            {% include 'product/_category.html.twig' %}
+        </div>
+
+        
+    <br>
+    <br>
+   
+        <div class="row"> 
+            <div class="col-left col-12 col-lg-3 d-flex flex-column align-items-center "><!-- col-left -->
+                {% include 'product/_productList.html.twig' %}
+            </div><!-- /.col-left -->
+
+            <div class="col-center col-lg-1 "><!-- col-divided -->
+                
+            </div><!-- /.col-divided -->
+
+            <div class="col-right col-12 col-lg-8 "><!-- col-right -->
+                
+            </div><!-- /.col-right -->   
+
+        </div>
+
+         
+        
+
+{% endblock %}

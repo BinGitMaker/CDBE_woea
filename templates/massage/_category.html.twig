@@ -1,0 +1,14 @@
+<div class="row mt-4">
+    <div class="d-flex justify-content-center">
+        <div class="button-group">
+            <div class="d-flex flex-row">
+                {% for massCategory in massCategories %}
+
+                    <a href="{{ path('massage_by_category', {'slug' : massCategory.slug}) }}" 
+                    class="btn btn-cat">{{ massCategory.name }}</a>
+                    
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

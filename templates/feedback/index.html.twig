@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avis : Cabinet de Bien-Être-Sandrine-Picod{% endblock %}
+
+{% block content %}
+
+    <h1 class="d-flex justify-content-center">Ils ont aimé l'experience</h1>
+
+    <div class="row">
+        {% for about in abouts %}
+            <div class="col order-1 col-lg-4 flex-column">
+                
+                <img class="bd-placeholder-img rounded-circle" 
+                src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
+                width="300" height="300"
+                focusable="false" role="img" 
+                alt="{{ about.illustration }}">
+                
+                <p class="my-4">
+                    <a class="btn btn-contact btn-light bg-light text-primary" href="#" role="button">CONTACTEZ-MOI &raquo;</a>
+                </p>
+            
+                <!-- START INTERVENTION CARD -->
+                <div class=" d-flex justify-content-center">
+                    <div class="card intervention-feedbackCard">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">INTERVENTIONS<br> EXTERIEURES</h5>
+                            <a href="#" class="btn btn-ext">ENTREPRISE</a>
+                            <a href="#" class="btn btn-ext">ECOLE</a>
+                            <a href="#" class="btn btn-ext">EHPAD</a>
+                        </div>
+                    </div>
+                </div><!-- END INTERVENTION CARD -->
+            </div>
+        {% endfor %}
+        
+        <div class="col order-2 col-lg-8">
+            {% for feedback in feedbacks %}
+
+                <section class="card-feedback">
+                    <h3>{{ feedback.title }}</h3>
+                    <p>{{ feedback.content }}</p>
+                    <h2 class="d-flex justify-content-end">{{ feedback.name }}</h2>
+                </section>
+            
+            {% endfor %}
+        </div><!-- /.right col -->
+
+    </div>
+    
+{% endblock %}

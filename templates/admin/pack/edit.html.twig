@@ -1,0 +1,12 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modifier le forfait{% endblock %}
+
+{% block body %}
+    <h1 class="d-flex justify-content-center text-bg-info">Modifier le forfait</h1>
+
+    <a class="h5 p-3" href="{{ path('admin_pack_index') }}"><< Retour aux forfaits</a>
+
+    {{ include('admin/pack/_form.html.twig', {'button_label': 'Valider la modification'}) }}
+
+{% endblock %}

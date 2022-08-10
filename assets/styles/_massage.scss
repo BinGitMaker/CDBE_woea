@@ -1,0 +1,25 @@
+/* LEFT COLUMN ------------------------- */
+@media (max-width: 1000px) {
+    .card-massage-list{
+        display: none;
+    }        
+    
+}
+
+@media (min-width: 1000px) {
+    .button-massage-list{
+        display: none;
+    }        
+    
+}
+
+.button-massage{
+    background-image: linear-gradient(180deg, #B6DFE4 0%, #DEF0F2 52.08%, #ECF2F5 100%);
+    margin-inline: 0.4rem;
+    width: 18rem;
+    box-shadow: 0px 4px 4px #B6DFE4;
+    border-radius: 60px;
+    color:#345A92;
+    display: inline-block;
+
+}
