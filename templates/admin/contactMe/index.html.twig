@@ -1,0 +1,53 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}ContactMe index{% endblock %}
+
+{% block body %}
+    <h1 class="d-flex justify-content-center text-bg-info">Contactez-moi</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Phone</th>
+                <th>Mail</th>
+                <th>Address1</th>
+                <th>Address2</th>
+                <th>Map</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for contactMe in contactMes %}
+            <tr>
+                <td>{{ contactMe.phone }}</td>
+                <td>{{ contactMe.mail }}</td>
+                <td>{{ contactMe.address1 }}</td>
+                <td>{{ contactMe.address2 }}</td>
+                <td>{{ contactMe.map }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary mb-2">
+                        <a class="text-decoration-none text-light" href="{{ path('admin_contactMe_edit', {'id': contactMe.id}) }}">
+                            MODIFIER 
+                        </a>
+                    </button>
+                    {{ include('admin/contactMe/_delete_form.html.twig') }}
+                </td>
+                    
+            </tr>  
+            
+        {% else %}
+            <div>
+                <p colspan="7">La page "Contact" n'a aucun contenu pour le moment</p>
+            </div>
+            <div class="row d-flex justify-content-end "> 
+                <button type="button" class="btn btn-success col-2 mx-3">
+                    <a class="text-decoration-none text-light" href="{{ path('admin_contactMe_new') }}">
+                        CREER LE CONTENU
+                    </a>
+                </button>
+            </div>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
