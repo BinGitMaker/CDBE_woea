@@ -16,6 +16,10 @@ class ProdCategoryType extends AbstractType
             ->add('name', TextType::class, [
                 'label' => 'Nom de la Catégorie',
                 ])
+            ->add('slug', TextType::class, [
+                'label' => 'Slug (ecrire-ainsi-le-slug)',
+                
+                ])
         ;
     }
 
