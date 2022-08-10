@@ -1,6 +1,8 @@
-    <p class="mt-4 ">
-        <a class="btn btn-contact btn-light bg-light text-primary" href="#" role="button">CONTACTEZ-MOI &raquo;</a>
-    </p> 
+    {% for contactMe in contactMes %}
+        <p class="mt-4">
+            <a class="btn btn-contact btn-light bg-light text-primary" href="{{ path('contactMe') }}" role="button">CONTACTEZ-MOI &raquo;</a>
+        </p>
+    {% endfor %}
 <br>
                             
     <div class="card-massage-list py-2"><!-- card massage -->

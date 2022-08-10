@@ -8,15 +8,14 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class HomeController extends AbstractController
+class ContactMeController extends AbstractController
 {
-    #[Route('/', name: 'home')]
-    public function index(AboutRepository $abouts, ContactMeRepository $contactMes): Response
+    #[Route('/contactez-moi', name: 'contactMe')]
+    public function index(ContactMeRepository $contactMes, AboutRepository $abouts): Response
     {
-
-        return $this->render('home/index.html.twig',[
-            'abouts' => $abouts->findAll(),
+        return $this->render('contactMe/index.html.twig', [
             'contactMes' => $contactMes->findAll(),
+            'abouts' => $abouts->findAll(),
         ]);
     }
 }

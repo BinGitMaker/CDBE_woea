@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class ContactMeType extends AbstractType
 {
@@ -46,6 +47,10 @@ class ContactMeType extends AbstractType
             ->add('map', TextType::class, [
                 'label' => 'Google view de votre cabinet n°1',
                 'required' => false,
+                ])
+            ->add('content', TextareaType::class, [
+                'label' => 'Texte de presentation de votre page contact
+                (pour les saut de ligne ajouter ceci "<br>" sans espace)',
                 ])
         ;
     }

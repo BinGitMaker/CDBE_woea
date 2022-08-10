@@ -16,9 +16,11 @@
                 focusable="false" role="img" 
                 alt="{{ about.illustration }}">
                 
-                <p class="my-4">
-                    <a class="btn btn-contact btn-light bg-light text-primary" href="#" role="button">CONTACTEZ-MOI &raquo;</a>
-                </p>
+                {% for contactMe in contactMes %}
+                    <p class="mt-4">
+                        <a class="btn btn-contact btn-light bg-light text-primary" href="{{ path('contactMe') }}" role="button">CONTACTEZ-MOI &raquo;</a>
+                    </p>
+                {% endfor %}
             
                 <!-- START INTERVENTION CARD -->
                 <div class=" d-flex justify-content-center">

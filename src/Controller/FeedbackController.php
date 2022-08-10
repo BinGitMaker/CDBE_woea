@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Feedback;
 use App\Repository\AboutRepository;
 use App\Repository\FeedbackRepository;
+use App\Repository\ContactMeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,11 +20,12 @@ class FeedbackController extends AbstractController
     }
 
     #[Route('/avis', name: 'feedback')]
-    public function index(FeedbackRepository $feedbacks, AboutRepository $abouts): Response
+    public function index(FeedbackRepository $feedbacks, AboutRepository $abouts, ContactMeRepository $contactMes): Response
     {
         return $this->render('feedback/index.html.twig',[
             'feedbacks' => $feedbacks->findAll(),
             'abouts' => $abouts->findAll(),
+            'contactMes' => $contactMes->findAll(),
         ]);
     }
 }
