@@ -25,7 +25,9 @@
                 <td>{{ contactMe.mail }}</td>
                 <td>{{ contactMe.address1 }}</td>
                 <td>{{ contactMe.address2 }}</td>
-                <td>{{ contactMe.map }}</td>
+                <td><img class="bd-placeholder-img bd-placeholder-img-lg img-fluid " 
+                    src="{{ asset('/uploads/images/' ~ contactMe.map) }}" 
+                    alt="{{ contactMe.address1 }}"></td>
                 <td>
                     <button type="button" class="btn btn-primary mb-2">
                         <a class="text-decoration-none text-light" href="{{ path('admin_contactMe_edit', {'id': contactMe.id}) }}">
