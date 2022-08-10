@@ -13,10 +13,12 @@
                 width="300" height="300"
                 focusable="false" role="img" 
                 alt="{{ about.illustration }}">
-                
+
+                {% for contactMe in contactMes %}
                 <p class="mt-4">
-                    <a class="btn btn-contact btn-light bg-light text-primary" href="#" role="button">CONTACTEZ-MOI &raquo;</a>
+                    <a class="btn btn-contact btn-light bg-light text-primary" href="{{ path('contactMe') }}" role="button">CONTACTEZ-MOI &raquo;</a>
                 </p>
+                {% endfor %}
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4 order-1 order-lg-2 block-online-name">
                 <h1 class="display-3 display-lg-2">Sandrine Picod</h1>

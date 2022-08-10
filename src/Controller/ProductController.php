@@ -6,10 +6,11 @@ use App\Entity\Product;
 use App\Entity\ProdCategory;
 
 use App\Repository\ProductRepository;
+use App\Repository\ContactMeRepository;
+
 use Doctrine\ORM\EntityManagerInterface;
 
 use App\Repository\ProdCategoryRepository;
-
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -39,6 +40,7 @@ class ProductController extends AbstractController
     #[Route('/{slug}', name: 'product_by_category')]
     public function indexByCategory(ProdCategory $prodCategory, 
                                     ProdCategoryRepository $prodCategories,
+                                    ContactMeRepository $contactMes
                                 ): Response
     {   
         if (!$prodCategory){
@@ -53,6 +55,7 @@ class ProductController extends AbstractController
             'prodCategories' => $prodCategories->findAll(),
             'prodCategory' => $prodCategory,
             'products' => $products,
+            'contactMes' => $contactMes->findAll(),
         ]);
     }
 
@@ -63,6 +66,7 @@ class ProductController extends AbstractController
                             ProdCategoryRepository $prodCategories, 
                             Product $product,
                             ProductRepository $products,
+                            ContactMeRepository $contactMes
                         ): Response
     { 
         
@@ -79,6 +83,7 @@ class ProductController extends AbstractController
             'prodCategory' => $prodCategory,
             'products' => $products->findByCategory($category),
             'product' => $product,
+            'contactMes' => $contactMes->findAll(),
         ]);
     }
 }

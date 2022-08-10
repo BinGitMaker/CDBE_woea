@@ -8,6 +8,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th>Contenu de la page contact </th>
                 <th>Phone</th>
                 <th>Mail</th>
                 <th>Address1</th>
@@ -19,6 +20,7 @@
         <tbody>
         {% for contactMe in contactMes %}
             <tr>
+                <td>{{ contactMe.content }}</td>
                 <td>{{ contactMe.phone }}</td>
                 <td>{{ contactMe.mail }}</td>
                 <td>{{ contactMe.address1 }}</td>

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ContactMeRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ContactMeRepository::class)]
@@ -27,6 +28,9 @@ class ContactMe
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $map = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $content = null;
 
     public function getId(): ?int
     {
@@ -89,6 +93,18 @@ class ContactMe
     public function setMap(?string $map): self
     {
         $this->map = $map;
+
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent(string $content): self
+    {
+        $this->content = $content;
 
         return $this;
     }

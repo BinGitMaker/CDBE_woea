@@ -3,18 +3,19 @@
 namespace App\Controller;
 
 use App\Entity\Massage;
-use App\Entity\MassCategory;
 use App\Entity\Feedback;
+use App\Entity\MassCategory;
 
-use App\Repository\MassageRepository;
-use App\Repository\MassCategoryRepository;
 use App\Repository\PackRepository;
-use App\Repository\PackCatSoloRepository;
-use App\Repository\PackCatMultiRepository;
+use App\Repository\MassageRepository;
 use App\Repository\FeedbackRepository;
-
+use App\Repository\ContactMeRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\PackCatSoloRepository;
 
+use App\Repository\MassCategoryRepository;
+
+use App\Repository\PackCatMultiRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -43,7 +44,8 @@ class MassageController extends AbstractController
 
     #[Route('/{slug}', name: 'massage_by_category')]
     public function indexByCategory(MassCategory $massCategory, 
-                                    MassCategoryRepository $massCategories
+                                    MassCategoryRepository $massCategories,
+                                    ContactMeRepository $contactMes
                                     ): Response
     {   
         if (!$massCategory){
@@ -58,6 +60,7 @@ class MassageController extends AbstractController
             'massCategories' => $massCategories->findAll(),
             'massCategory' => $massCategory,
             'massages' => $massages,
+            'contactMes' => $contactMes->findAll(),
         ]);
     }
 
@@ -69,7 +72,8 @@ class MassageController extends AbstractController
                             Massage $massage,
                             MassageRepository $massages,
                             PackCatMultiRepository $packMultis,
-                            PackCatSoloRepository $packSolos
+                            PackCatSoloRepository $packSolos,
+                            ContactMeRepository $contactMes
                         ): Response
     { 
         
@@ -91,6 +95,7 @@ class MassageController extends AbstractController
             'packMultis' => $packMultis->findAll(),
             'packSolos' => $packSolos->findAll(),
             'feedbacks' => $feedbacks,
+            'contactMes' => $contactMes->findAll(),
         ]);
     }
 }
