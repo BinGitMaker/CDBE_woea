@@ -4,11 +4,12 @@ namespace App\Controller\Admin;
 
 use App\Entity\ContactMe;
 use App\Form\ContactMeType;
+use App\Service\FileUploaderService;
 use App\Repository\ContactMeRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/admin/contactez-moi', name: 'admin_contactMe_')]
 class ContactMeCrudController extends AbstractController
@@ -22,13 +23,24 @@ class ContactMeCrudController extends AbstractController
     }
 
     #[Route('/new', name: 'new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ContactMeRepository $contactMeRepository): Response
+    public function new(Request $request, ContactMeRepository $contactMeRepository, FileUploaderService $fileUploader): Response
     {
         $contactMe = new ContactMe();
         $form = $this->createForm(ContactMeType::class, $contactMe);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $map = $form->get('map')->getData();
+            
+            if($map == null){
+                $contactMe->setMap(null);
+                
+            }else{
+                $mapName = $fileUploader->upload($map);
+                $contactMe->setMap($mapName);
+            }
+
             $contactMeRepository->add($contactMe, true);
 
             return $this->redirectToRoute('admin_contactMe_index', [], Response::HTTP_SEE_OTHER);
@@ -42,12 +54,23 @@ class ContactMeCrudController extends AbstractController
 
 
     #[Route('/{id}/edit', name: 'edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, ContactMe $contactMe, ContactMeRepository $contactMeRepository): Response
+    public function edit(Request $request, ContactMe $contactMe, ContactMeRepository $contactMeRepository, FileUploaderService $fileUploader): Response
     {
         $form = $this->createForm(ContactMeType::class, $contactMe);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $map = $form->get('map')->getData();
+            
+            if($map == null){
+                $contactMe->setMap(null);
+                
+            }else{
+                $mapName = $fileUploader->upload($map);
+                $contactMe->setMap($mapName);
+            }
+            
             $contactMeRepository->add($contactMe, true);
 
             return $this->redirectToRoute('admin_contactMe_index', [], Response::HTTP_SEE_OTHER);
