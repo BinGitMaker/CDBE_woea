@@ -1,0 +1,12 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Edit ContactMe{% endblock %}
+
+{% block body %}
+<h1 class="d-flex justify-content-center text-bg-info">Modifier la page "Contact"</h1>
+
+    <a href="{{ path('admin_contactMe_index') }}"><< Retour à la page "Contact"</a>
+    
+    {{ include('admin/contactMe/_form.html.twig', {'button_label': 'Valider la modification'}) }}
+
+{% endblock %}
