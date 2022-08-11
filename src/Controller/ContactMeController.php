@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\SendMsg;
 use App\Form\SendMsgType;
+use App\Repository\LogoRepository;
 use App\Repository\AboutRepository;
 use App\Repository\ContactMeRepository;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class ContactMeController extends AbstractController
 {
     #[Route('/contactez-moi', name: 'contactMe')]
-    public function index(ContactMeRepository $contactMes, AboutRepository $abouts): Response
+    public function index(ContactMeRepository $contactMes, AboutRepository $abouts, LogoRepository $logos): Response
     {
         $message = new SendMsg();
         
@@ -23,6 +24,7 @@ class ContactMeController extends AbstractController
             'contactMes' => $contactMes->findAll(),
             'abouts' => $abouts->findAll(),
             'form' => $form->createView(),
+            'logos' => $logos->findAll(),
         ]);
     }
 }

@@ -1,5 +1,12 @@
-<nav class="navbar navbar-expand-md navbar-light fixed-top bg-info px-3">
-    <a class="navbar-brand order-1 order-md-1" href="#">Sandrine Picod</a>
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-info p-0 px-3">
+    <a class="navbar-brand order-1 order-md-1 p-0" href="#">
+        {% for logo in logos %}
+            <img class="bd-placeholder-img bd-placeholder-img-lg img-fluid p-0" 
+            src="{{ asset('/uploads/images/' ~ logo.logoPro) }}"
+            width="70" height="70" 
+            alt="{{ logo.logoPro }}">
+        {% endfor %}
+    </a>
     <button class="navbar-toggler order-3" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

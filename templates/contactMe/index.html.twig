@@ -51,12 +51,11 @@
 
 
             <div class="col-3 d-flex align-items-center">
-                {% for about in abouts %}
-                <img class="bd-placeholder-img rounded-circle " 
-                src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
-                width="300" height="300"
-                focusable="false" role="img" 
-                alt="{{ about.illustration }}">
+                {% for logo in logos %}
+                    <img class="bd-placeholder-img bd-placeholder-img-lg img-fluid " 
+                        src="{{ asset('/uploads/images/' ~ logo.logoPro) }}"
+                        width="300" height="300" 
+                        alt="{{ logo.logoPro }}">
                 {% endfor %}
             </div>
 

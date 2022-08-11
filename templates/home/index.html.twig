@@ -21,10 +21,17 @@
                 {% endfor %}
             </div><!-- /.col-lg-4 -->
             <div class="col-lg-4 order-1 order-lg-2 block-online-name">
+                {% for logo in logos %}
+                    <img class="bd-placeholder-img bd-placeholder-img-lg img-fluid " 
+                        src="{{ asset('/uploads/images/' ~ logo.logoPro) }}"
+                        width="150" height="150" 
+                        alt="{{ logo.logoPro }}">
+                {% endfor %}
+
                 <h1 class="display-3 display-lg-2">Sandrine Picod</h1>
-                <h4><small>hommes, femmes, enfants</small></h4>
+                <h5>hommes, femmes, enfants</h5>
         
-                <h3>{{ about.undertitle|raw }}</h3>
+                <h4>{{ about.undertitle|raw }}</h4>
         
             </div><!-- /.col-lg-4 -->
     
