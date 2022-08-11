@@ -3,40 +3,61 @@
 {% block title %}Qui-sui-je? : Cabinet de Bien-Être-Sandrine-Picod{% endblock %}
 
 {% block content %}
-
+    
     {% for about in abouts %}
-        <div class="row row-featurette d-flex flex-column flex-md-row">
-            <div class="col-lg-4 flex-column order-2 order-lg-1">
+        <div class="row row-featurette d-flex flex-column flex-md-row position-relative">
+            <div class="col col-md-6 col-lg-3 d-flex flex-column align-items-center order-2 order-md-1 my-5 mb-0 my-md-0 my-lg-5 mb-lg-0">
                 
-                <img class="bd-placeholder-img rounded-circle" 
+                <!-- groupe title only for mobile version -->
+                <h1 class="d-md-none text-center display-1">Sandrine Picod</h1>
+                <h5 class="d-md-none text-center">hommes, femmes, enfants</h5>
+                <h4 class="d-md-none text-center"><small>{{ about.undertitle|raw }}</small></h4>
+
+                <img class="bd-placeholder-img rounded-circle my-4 mb-0 my-md-0 my-lg-5 mb-lg-0" 
                 src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
                 width="300" height="300"
                 focusable="false" role="img" 
                 alt="{{ about.illustration }}">
 
                 {% for contactMe in contactMes %}
-                <p class="mt-4">
+                <p class="mt-4 py-3 text-center">
                     <a class="btn btn-contact btn-light bg-light text-primary" href="{{ path('contactMe') }}" role="button">CONTACTEZ-MOI &raquo;</a>
                 </p>
                 {% endfor %}
             </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4 order-1 order-lg-2 block-online-name">
+            <div class="my-5 my-md-3 d-lg-none"></div>
+            <div class="col col-md-6 order-1 order-md-2 block-online-name py-lg-0 d-flex flex-column">
                 {% for logo in logos %}
-                    <img class="bd-placeholder-img bd-placeholder-img-lg img-fluid " 
-                        src="{{ asset('/uploads/images/' ~ logo.logoPro) }}"
-                        width="150" height="150" 
-                        alt="{{ logo.logoPro }}">
-                {% endfor %}
+                    <div class=" position-relative py-5">
+                        <img class="bd-placeholder-img bd-placeholder-img-lg img-fluid position-absolute top-50 start-50 translate-middle my-lg-5" 
+                            src="{{ asset('/uploads/images/' ~ logo.banner) }}"
+                            width="700" height="700" 
+                            alt="{{ logo.banner }}">
+                    </div>
+                        
+                    <div class="position-relative my-3">
+                        <img class="bd-placeholder-img bd-placeholder-img-lg img-fluid position-absolute top-50 start-50 translate-middle my-lg-3" 
+                            src="{{ asset('/uploads/images/' ~ logo.logoPro) }}"
+                            width="150" height="150" 
+                            alt="{{ logo.logoPro }}">
 
-                <h1 class="display-3 display-lg-2">Sandrine Picod</h1>
-                <h5>hommes, femmes, enfants</h5>
-        
-                <h4>{{ about.undertitle|raw }}</h4>
-        
+                        
+                    </div>
+                {% endfor %}
+                <!-- groupe title only for desktop and middle screen version -->
+                <section class="main-title-group py-md-0 py-lg-5 pb-lg-0 ">
+                    <h1 class="d-none d-md-flex justify-content-md-center display-md-3 display-lg-1 my-md-2 py-md-5 pb-md-0 ">Sandrine Picod</h1>
+                    
+                    <h5 class="d-none d-md-flex justify-content-md-center">hommes, femmes, enfants</h5>
+            
+                    <h4 class="d-none d-md-flex justify-content-lg-center text-md-center"><small>{{ about.undertitle|raw }}</small></h4>
+                </section>
+                
+
             </div><!-- /.col-lg-4 -->
     
         <!-- START INTERVENTION CARD -->
-            <div class="col-lg-4 order-3 d-flex justify-content-center">
+            <div class="col-lg-3 order-3 d-flex justify-content-center">
                 <div class="card intervention-card">
                     <div class="card-body d-flex flex-column">
                     <h5 class="card-title">INTERVENTIONS<br> EXTERIEURES</h5>
@@ -49,14 +70,14 @@
         </div><!-- /.row -->
 
         <!-- START THE FEATURETTES -->
-        <div class="container">
+        <div class="container my-5 my-lg-0">
         
             <div class="row row-featurette">
-                <div class="col-md-7">
+                <div class="col-lg-7">
                     <h2 class="featurette-heading">{{ about.title1 }}</h2>
                     <p class="lead">{{ about.description1 }}</p>
                 </div>
-                <div class="col-md-5 d-flex justify-content-center">
+                <div class="col-lg-5 d-flex justify-content-center">
                     <img class="img-home bd-placeholder-img bd-placeholder-img-lg img-fluid " 
                     src="{{ asset('/uploads/images/' ~ about.pics1) }}" 
                     width="500" height="500"
@@ -68,11 +89,11 @@
             <p class="featurette-divider"></p>
 
             <div class="row row-featurette">
-                <div class="col-md-7 order-md-2">
+                <div class="col-lg-7 order-md-2">
                     <h2 class="featurette-heading">{{ about.title2 }}</h2>
                     <p class="lead">{{ about.description2 }}</p>
                 </div>
-                <div class="col-md-5 d-flex justify-content-center">
+                <div class="col-lg-5 d-flex justify-content-center">
                     <img class="img-home bd-placeholder-img bd-placeholder-img-lg img-fluid " 
                     src="{{ asset('/uploads/images/' ~ about.pics2) }}" 
                     width="500" height="500"
@@ -84,11 +105,11 @@
             <p class="featurette-divider"></p>
 
             <div class="row row-featurette">
-                <div class="col-md-7">
+                <div class="col-lg-7">
                     <h2 class="featurette-heading">{{ about.title3 }}</h2>
                     <p class="lead">{{ about.description3 }}</p>
                 </div>
-                <div class="col-md-5 d-flex justify-content-center">
+                <div class="col-lg-5 d-flex justify-content-center">
                     <img class="img-home bd-placeholder-img bd-placeholder-img-lg img-fluid " 
                     src="{{ asset('/uploads/images/' ~ about.pics3) }}" 
                     width="500" height="500"

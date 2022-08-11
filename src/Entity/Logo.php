@@ -19,6 +19,9 @@ class Logo
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $logoProInversed = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $banner = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +47,18 @@ class Logo
     public function setLogoProInversed(?string $logoProInversed): self
     {
         $this->logoProInversed = $logoProInversed;
+
+        return $this;
+    }
+
+    public function getBanner(): ?string
+    {
+        return $this->banner;
+    }
+
+    public function setBanner(?string $banner): self
+    {
+        $this->banner = $banner;
 
         return $this;
     }
