@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Feedback;
+use App\Repository\LogoRepository;
 use App\Repository\AboutRepository;
 use App\Repository\FeedbackRepository;
 use App\Repository\ContactMeRepository;
@@ -20,12 +21,14 @@ class FeedbackController extends AbstractController
     }
 
     #[Route('/avis', name: 'feedback')]
-    public function index(FeedbackRepository $feedbacks, AboutRepository $abouts, ContactMeRepository $contactMes): Response
+    public function index(FeedbackRepository $feedbacks, AboutRepository $abouts, ContactMeRepository $contactMes, LogoRepository $logos): Response
     {
         return $this->render('feedback/index.html.twig',[
             'feedbacks' => $feedbacks->findAll(),
             'abouts' => $abouts->findAll(),
             'contactMes' => $contactMes->findAll(),
+            'logos' => $logos->findAll(),
+            
         ]);
     }
 }

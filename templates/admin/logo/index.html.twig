@@ -1,0 +1,46 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Logo index{% endblock %}
+
+{% block body %}
+    <h1>Logo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>LogoPro</th>
+                <th>LogoProInversed</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for logo in logos %}
+            <tr>
+            
+                <td><img class="bd-placeholder-img bd-placeholder-img-lg img-fluid " 
+                    src="{{ asset('/uploads/images/' ~ logo.logoPro) }}" 
+                    
+                    alt="{{ logo.logoPro }}">
+                    
+                </td>
+                <td><img class="bd-placeholder-img bd-placeholder-img-lg img-fluid " 
+                    src="{{ asset('/uploads/images/' ~ logo.logoProInversed) }}" 
+                    
+                    alt="{{ logo.logoProInversed }}">
+                    
+                <td>
+                    
+                    <a href="{{ path('admin_logo_edit', {'id': logo.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_logo_new') }}">Create new</a>
+{% endblock %}

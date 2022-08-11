@@ -20,7 +20,7 @@ class RegisterController extends AbstractController
     }
 
     #[Route('/inscription', name: 'register')]
-    public function index(Request $request, UserPasswordHasherInterface $encoder): Response
+    public function index(Request $request, UserPasswordHasherInterface $encoder, LogoRepository $logos): Response
     {
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user);
@@ -38,7 +38,8 @@ class RegisterController extends AbstractController
         }
         
         return $this->render('register/index.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'logos' => $logos->findAll(),
         ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\ChangePasswordType;
+use App\Repository\LogoRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +20,7 @@ class AccountPasswordController extends AbstractController
     }
     
     #[Route('/compte/modifier-mon-mot-de-passe', name: 'account_password')]
-    public function index(Request $request, UserPasswordHasherInterface $encoder): Response
+    public function index(Request $request, UserPasswordHasherInterface $encoder, LogoRepository $logos): Response
     {
         $notification = null;
 
@@ -48,7 +49,8 @@ class AccountPasswordController extends AbstractController
 
         return $this->render('account/password.html.twig',[
             'form' =>$form->createView(),
-            'notification' => $notification
+            'notification' => $notification,
+            'logos' => $logos->findAll(),
         ]);
     }
 }

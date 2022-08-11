@@ -5,11 +5,12 @@ namespace App\Controller;
 use App\Entity\Product;
 use App\Entity\ProdCategory;
 
+use App\Repository\LogoRepository;
 use App\Repository\ProductRepository;
+
 use App\Repository\ContactMeRepository;
 
 use Doctrine\ORM\EntityManagerInterface;
-
 use App\Repository\ProdCategoryRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,7 +27,7 @@ class ProductController extends AbstractController
     }
 
     #[Route('/', name: 'category')]
-    public function index(): Response
+    public function index(LogoRepository $logos): Response
     {
         $prodCategories = $this->entityManager
             ->getRepository(ProdCategory::class)
@@ -34,13 +35,15 @@ class ProductController extends AbstractController
             
         return $this->render('product/index.html.twig', [
             'prodCategories' => $prodCategories,
+            'logos' => $logos->findAll(),
         ]);
     }
 
     #[Route('/{slug}', name: 'product_by_category')]
     public function indexByCategory(ProdCategory $prodCategory, 
                                     ProdCategoryRepository $prodCategories,
-                                    ContactMeRepository $contactMes
+                                    ContactMeRepository $contactMes,
+                                    LogoRepository $logos
                                 ): Response
     {   
         if (!$prodCategory){
@@ -56,6 +59,7 @@ class ProductController extends AbstractController
             'prodCategory' => $prodCategory,
             'products' => $products,
             'contactMes' => $contactMes->findAll(),
+            'logos' => $logos->findAll(),
         ]);
     }
 
@@ -66,7 +70,8 @@ class ProductController extends AbstractController
                             ProdCategoryRepository $prodCategories, 
                             Product $product,
                             ProductRepository $products,
-                            ContactMeRepository $contactMes
+                            ContactMeRepository $contactMes,
+                            LogoRepository $logos
                         ): Response
     { 
         
@@ -84,6 +89,7 @@ class ProductController extends AbstractController
             'products' => $products->findByCategory($category),
             'product' => $product,
             'contactMes' => $contactMes->findAll(),
+            'logos' => $logos->findAll(),
         ]);
     }
 }

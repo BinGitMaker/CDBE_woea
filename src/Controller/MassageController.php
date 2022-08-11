@@ -6,15 +6,16 @@ use App\Entity\Massage;
 use App\Entity\Feedback;
 use App\Entity\MassCategory;
 
+use App\Repository\LogoRepository;
 use App\Repository\PackRepository;
 use App\Repository\MassageRepository;
 use App\Repository\FeedbackRepository;
 use App\Repository\ContactMeRepository;
 use Doctrine\ORM\EntityManagerInterface;
+
 use App\Repository\PackCatSoloRepository;
 
 use App\Repository\MassCategoryRepository;
-
 use App\Repository\PackCatMultiRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,7 +32,7 @@ class MassageController extends AbstractController
     }
     
     #[Route('/', name: 'massCategory')]
-    public function index(): Response
+    public function index(LogoRepository $logos): Response
     {    
         $massCategories = $this->entityManager
             ->getRepository(MassCategory::class)
@@ -39,13 +40,15 @@ class MassageController extends AbstractController
 
         return $this->render('massage/index.html.twig', [
             'massCategories' => $massCategories,
+            'logos' => $logos->findAll(),
         ]);
     }
 
     #[Route('/{slug}', name: 'massage_by_category')]
     public function indexByCategory(MassCategory $massCategory, 
                                     MassCategoryRepository $massCategories,
-                                    ContactMeRepository $contactMes
+                                    ContactMeRepository $contactMes,
+                                    LogoRepository $logos
                                     ): Response
     {   
         if (!$massCategory){
@@ -61,6 +64,7 @@ class MassageController extends AbstractController
             'massCategory' => $massCategory,
             'massages' => $massages,
             'contactMes' => $contactMes->findAll(),
+            'logos' => $logos->findAll(),
         ]);
     }
 
@@ -73,7 +77,8 @@ class MassageController extends AbstractController
                             MassageRepository $massages,
                             PackCatMultiRepository $packMultis,
                             PackCatSoloRepository $packSolos,
-                            ContactMeRepository $contactMes
+                            ContactMeRepository $contactMes,
+                            LogoRepository $logos
                         ): Response
     { 
         
@@ -96,6 +101,7 @@ class MassageController extends AbstractController
             'packSolos' => $packSolos->findAll(),
             'feedbacks' => $feedbacks,
             'contactMes' => $contactMes->findAll(),
+            'logos' => $logos->findAll(),
         ]);
     }
 }
