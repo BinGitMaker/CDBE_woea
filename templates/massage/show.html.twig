@@ -6,14 +6,16 @@
 
     <h1 class="d-flex justify-content-center">Mes prestations</h1>
 
-        <div class="mt-4">
+        <div class="mt-4 col-md-12 order-1 justify-content-center">
             {% include 'massage/_category.html.twig' %}
-        </div>
+        </div><!-- /.row-desktop /-->
+
+        
     <br>
     <br>
    
         <div class="row"> 
-            <div class="col-left colMassage col-12 col-lg-3 d-flex flex-column align-items-center "><!-- col-left -->
+            <div class="d-md-flex col-left colMassage col-lg-3 d-flex flex-column align-items-center "><!-- col-left -->
                 
                     {% include 'massage/_massagesList.html.twig' %}
                 
@@ -21,7 +23,7 @@
                 <p class="mt-4 ">
                     <a class="btn btn-rdv btn-dark bg-primary text-light" href="#" role="button">PRENEZ RENDEZ-VOUS &raquo;</a>
                 </p>
-            </div><!-- /.col-left -->
+            </div><!-- /.col-left for middle sreen and desktop only-->
 
             <div class="col-center col-lg-1 "><!-- col-divided -->
                 

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light fixed-top bg-info p-0 px-3">
-    <a class="navbar-brand order-1 order-md-1 p-0" href="#">
+    <a class="navbar-brand order-1 order-md-1 p-0" href="{{ path('home') }}">
         {% for logo in logos %}
             <img class="bd-placeholder-img bd-placeholder-img-lg img-fluid p-0" 
             src="{{ asset('/uploads/images/' ~ logo.logoPro) }}"
