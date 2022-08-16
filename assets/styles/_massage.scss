@@ -1,16 +1,129 @@
-/* LEFT COLUMN ------------------------- */
-@media (max-width: 1000px) {
-    .card-massage-list{
-        display: none;
-    }        
+/* MASSAGES/PRESTATIONS ------------------------- */
+
+/* CATEGORIES ------------------------- */
+.btn-cat{
+    background-image: linear-gradient(180deg, #B6DFE4 0%, #DEF0F2 52.08%, #ECF2F5 100%);
+    margin-inline: 0.8rem;
+    padding-block: 0.5rem;
+    box-shadow: 0px 4px 4px #B6DFE4;
+    border-radius: 60px;
+    color:#345A92;
+}
+
+
+.button {
+	pointer-events: auto;
+	cursor: pointer;
+	background: #345A92;
+	border: none;
+/* 	padding-block: 0.5rem;
+	margin-inline: 2rem; */
+	font-family: inherit;
+	font-size: 1rem;
+	position: relative;
+	display: inline-block;
+    box-shadow: 0px 4px 4px #B6DFE4;
+    border-radius: 60px;
+}
+
+@media (max-width:959px) {
+    .button {
+        font-size: 1rem;
+}
+}
+
+@media (max-width:767px) {
+    .button {
+        font-size: 0.75rem;
+}
+}
+
+
+.button::before,
+.button::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
     
+}
+
+.button--pan {
+	font-weight: 700;
+	overflow: hidden;
+}
+
+.button--pan:hover {
+    background: linear-gradient(180deg, rgba(52, 90, 146, 0) 0%, #345A92 100%);
+	
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.button--pan span {
+	position: relative;
+    color:#345A92;
+}
+
+.button--pan span:hover {
+    color:white;
+    
+}
+
+
+.button--pan::before {
+	content: '';
+	background-image: linear-gradient(180deg, #B6DFE4 0%, #DEF0F2 52.08%, #ECF2F5 100%);
+	transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
+    
+}
+
+
+
+.button--pan:hover::before {
+	transform: translate3d(0,-100%,0);
+}
+
+/* MASSAGE LIST ------------------------- */
+.massage-title{
+    text-decoration: none;
+}
+
+.massage-title:hover{
+    text-decoration: none;
+    text-shadow: 0px 4px 4px #FFFAFA;
+}
+
+
+.massage-maintitle{
+    text-decoration: none;
+    text-shadow: 0px 4px 4px #adb8ba;
+}
+
+/* MASSAGE LIST DESKTOP VERSION------------------------- */
+.card-massage-list{
+    background-image: linear-gradient(180deg, #B6DFE4 0%, #DEF0F2 52.08%, #ECF2F5 100%);
+    margin-inline: 0rem;
+    padding-inline: 0.8rem;
+    padding-block: 0.5rem;
+    box-shadow: 0px 4px 4px #B6DFE4;
+    border-radius: 15px;
+    color:#345A92;
+    width: 100%;
 }
 
 @media (min-width: 1000px) {
     .button-massage-list{
         display: none;
     }        
-    
+}
+
+/* MASSAGE LIST MOBIL VERSION------------------------- */
+
+@media (max-width: 1000px) {
+    .card-massage-list{
+        display: none;
+    }        
 }
 
 .button-massage{
@@ -23,3 +136,53 @@
     display: inline-block;
 
 }
+
+
+/* MASSAGE SHOW ------------------------- */
+.img-massage{
+    border-radius: 20px;
+    min-height: 50vh; 
+    min-width: 80vh;
+   
+}
+
+/* MASSAGE: FEEDBACK CAROUSEL ------------------------- */
+.card-feedback-best{
+    background-image: linear-gradient(180deg, #B6DFE4 0%, #DEF0F2 52.08%, #ECF2F5 100%);
+    margin: 0.8rem 0rem;
+    padding: 0.5rem 1.8rem 0.5rem 1.8rem; //top - right - bottom - left
+    box-shadow: 0px 4px 4px #B6DFE4;
+    border-radius: 15px;
+    color:#345A92;
+}
+
+.card-feedback-best h3{
+    font-size: 1rem;
+}
+
+.card-feedback-best p{
+    font-size: 0.8rem;
+}
+
+.card-feedback-best h2.feedback-name{
+    font-size: 1rem;
+}
+
+/* MASSAGE: PACKAGE ------------------------- */
+.card-package{
+    background-image: linear-gradient(180deg, #B6DFE4 0%, #DEF0F2 52.08%, #ECF2F5 100%);
+    margin: 0rem 2rem 2rem 2rem;
+    padding: 1.5rem 1.8rem 0.5rem 1.8rem; //top - right - bottom - left
+    box-shadow: 0px 4px 4px #B6DFE4;
+    border-radius: 15px;
+    color:#345A92;
+}
+
+
+
+
+
+
+
+
+
