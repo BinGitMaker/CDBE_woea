@@ -32,12 +32,12 @@
             <div class="col-right col-12 col-lg-8 p-0"><!-- col-right -->
                 <div class="row">
                         <section class="container massage-title d-flex justify-content-center my-5">
-                            <div class="col-9 d-flex justify-content-center align-items-center opacity-50 position-relative">
-                                <img class="img-massage bd-placeholder-img bd-placeholder-img-lg " 
+                            <div class="col-9 d-flex justify-content-center align-items-center position-relative">
+                                <img class="img-massage bd-placeholder-img bd-placeholder-img-lg opacity-50" 
                                 src="{{ asset('/uploads/images/' ~ massage.illustration) }}" 
                                 focusable="false" role="img" 
                                 alt="{{ massage.title }}">
-                                <h1 class="position-absolute display-1 text-light text-center">{{ massage.title }}</h1>
+                                <h1 class="massage-maintitle position-absolute display-1 text-primary text-center">{{ massage.title }}</h1>
                             </div>
                         </section>
                 </div>

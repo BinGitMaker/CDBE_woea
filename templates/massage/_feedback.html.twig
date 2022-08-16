@@ -1,6 +1,7 @@
  
     <h2 class="d-flex justify-content-center mt-5">Témoignages</h2>
-    {% for feedback in feedbacks %}
+
+{#  {% for feedback in feedbacks %}
 
         <section class="card-feedback w-100">
             <h3 class="fb-title">{{ feedback.title }}</h3>
@@ -8,29 +9,44 @@
             <h2 class="d-flex justify-content-end feedback-name">{{ feedback.name }}</h2>
         </section>
         
-    {% endfor %}
+    {% endfor %} #}
 
-{# 
-<section class="container mt-4">
+
+  <section class="container mt-4">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             {% for feedback in feedbacks %}
-            {% if loop.first %}{% set active = 'active' %}{% else %}{% set active = '' %}{% endif %}
+
+                {% if loop.first %}
+                    {% set active = 'active' %}
+                {% else %}
+                    {% set active = '' %}
+                {% endif %}
+                
                 <div data-slide-to="{{ loop.index0 }}"></div>
-            {% endfor %}
+
+            {# {% endfor %}
             
-            {% for feedback in feedbacks %}
-            {% if loop.first %}{% set active = 'active' %}{% else %}{% set active = '' %}{% endif %}
+            {% for feedback in feedbacks %} #}
+
+                {% if loop.first %}
+                    {% set active = 'active' %}
+                {% else %}
+                    {% set active = '' %}
+                {% endif %}
+
                 <div class="carousel-item {{ active }}">
 
-                    <section class="w-100 d-block">
+                    <div class="w-100 d-block">
                         <h3 class="">{{ feedback.title }}</h3>
                         <p class="m-0">{{ feedback.content|slice(0, 100) }} (...)</p>
                         <h2 class="d-flex justify-content-end feedback-name">{{ feedback.name }}</h2>
-                    </section>
+                    </div>
                         
                 </div>
-            {% endfor %}
+            {% endfor %}  
+
+            
         </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -41,4 +57,5 @@
                 <span class="visually-hidden">Next</span>
             </button>
       </div>
-</section> #}
+</section>  
+

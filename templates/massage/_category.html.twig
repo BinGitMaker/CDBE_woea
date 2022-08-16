@@ -1,13 +1,17 @@
 <div class="row mt-4">
     <div class="d-flex justify-content-center">
         <div class="button-group">
-            <div class="d-flex  flex-row ">
+            <div class="d-flex flex-row justify-content-center">
                 {% for massCategory in massCategories %}
 
-                    <a href="{{ path('massage_by_category', {'slug' : massCategory.slug}) }}" 
-                    class="btn btn-cat my-2 my-md-0 mx-0 mx-md-2 w-100 d-flex align-items-center justify-content-center">{{ massCategory.name }}</a>
+                    <a href="{{ path('massage', {slug : massCategory.slug, title_massage : massage.title}) }}" 
+                    class="btn button button--pan my-2 my-md-0 mx-1 mx-md-3 mx-lg-5 w-25 d-flex align-items-center justify-content-center">
+                    <span>{{ massCategory.name }}</span>
+                    
+                </a>
                     
                 {% endfor %}
+               
             </div>
         </div>
     </div>

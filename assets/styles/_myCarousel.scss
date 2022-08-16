@@ -1,95 +1,135 @@
-/* CUSTOMIZE THE CAROUSEL
+/* CUSTOMIZE THE CAROUSEL on PRESTATIONS PAGE
 -------------------------------------------------- */
 
-.carousel {
-    height: 50%;
-  }
-  .item,
-  .active,
-  .carousel-inner {
-    height: 100%;
-  }
-  
-   .carousel-control.left {
-    background-image: none;
-    width: 54px;
-    height: 54px;
-    top: 50%;
-    left: 20px;
-    margin-top: -27px;
-    line-height: 54px;
-    border: 0 none;
-    opacity: 2;
-    text-shadow: none;
-    -webkit-transition: all 0.2s ease-in-out 0s;
-    transition: all 0.2s ease-in-out 0s;
-  }
-  .carousel-control.right {
-    background-image: none;
-    width: 54px;
-    height: 54px;
-    top: 50%;
-    right: 20px;
-    margin-top: -27px;
-    line-height: 54px;
-    border: 0 none;
-    opacity: 2;
-    text-shadow: none;
-    -webkit-transition: all 0.2s ease-in-out 0s;
-    transition: all 0.2s ease-in-out 0s;
-  } 
-  .carousel-indicators {
-    right: 50%;
-    top: auto;
-    bottom: 0px;
-    margin-right: -19px;
-  }
-  .carousel-indicators li {
-    background: #c0c0c0;
-  }
-  .carousel-indicators .active {
-    background: #1f1f21;
-  }
-  .carousel-indicators li {
-    border: 0 none;
-  } 
-  .carousel-control.right:hover,
-  .carousel-control.left:hover {
-    opacity: 0.56;
-    border: 1px solid #fff;
-  } 
-  .carousel-fade .carousel-inner .item {
-    -webkit-transition-property: opacity;
-    transition-property: opacity;
-  }
-  .carousel-fade .carousel-control {
-    z-index: 2;
-  }
-  .carousel-fade .carousel-inner .item,
-  .carousel-fade .carousel-inner .active.left,
-  .carousel-fade .carousel-inner .active.right {
-    opacity: 0;
-  }
-  .carousel-fade .carousel-inner .active,
-  .carousel-fade .carousel-inner .next.left,
-  .carousel-fade .carousel-inner .prev.right {
-    opacity: 1;
-  }
-  .carousel-fade .carousel-inner .next,
-  .carousel-fade .carousel-inner .prev,
-  .carousel-fade .carousel-inner .active.left,
-  .carousel-fade .carousel-inner .active.right {
-    left: 0;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  } 
+.carousel-item{
+  height:12rem;
+}
 
-  .carousel-item {
-    width:100%;
-    height: 25rem;
-    object-fit: cover;
-  }
-  
+/* CUSTOMIZE THE CAROUSEL on AVIS PAGE
+-------------------------------------------------- */
+section.slidder {
+  height: 600px;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 500px 100px;
+  grid-template-columns: 1fr 30px 30px 30px 30px 30px 30px 30px 1fr;
+  align-items: center;
+  justify-items: center;
+}
 
+main#carousel {
+  grid-row: 1 / 2;
+  grid-column: 1 / 12;
+  width: 60vw;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  --items: 7;
+  --middle: 4;
+  --position: 1;
+  pointer-events: none;
+}
+
+div.item {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  --r: calc(var(--position) - var(--offset));
+  --abs: max(calc(var(--r) * -1), var(--r));
+  transition: all 0.25s linear;
+  transform: rotateY(calc(-10deg * var(--r)))
+    translateX(calc(-300px * var(--r)));
+  z-index: calc((var(--position) - var(--abs)));
+}
+
+div.item:nth-of-type(1) {
+  --offset: 1;
   
+}
+div.item:nth-of-type(2) {
+  --offset: 2;
   
+}
+div.item:nth-of-type(3) {
+  --offset: 3;
+  
+}
+div.item:nth-of-type(4) {
+  --offset: 4;
+  
+}
+div.item:nth-of-type(5) {
+  --offset: 5;
+ 
+}
+
+div.item:nth-of-type(6) {
+  --offset: 6;
+ 
+}
+
+div.item:nth-of-type(7) {
+  --offset: 7;
+ 
+}
+
+
+input:nth-of-type(1) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(1):checked ~ main#carousel {
+  --position: 1;
+}
+
+input:nth-of-type(2) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(2):checked ~ main#carousel {
+  --position: 2;
+}
+
+input:nth-of-type(3) {
+  grid-column: 4 / 5;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(3):checked ~ main#carousel {
+  --position: 3;
+}
+
+input:nth-of-type(4) {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(4):checked ~ main#carousel {
+  --position: 4;
+}
+
+input:nth-of-type(5) {
+  grid-column: 6 / 7;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(5):checked ~ main#carousel {
+  --position: 5;
+}
+
+input:nth-of-type(6) {
+  grid-column: 7 / 8;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(6):checked ~ main#carousel {
+  --position: 6;
+}
+
+input:nth-of-type(7) {
+  grid-column: 8 / 9;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(7):checked ~ main#carousel {
+  --position: 7;
+}

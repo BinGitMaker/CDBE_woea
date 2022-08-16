@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Feedback;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -17,10 +18,20 @@ class FeedbackType extends AbstractType
         $builder
             ->add('title', TextType::class, [
                 'label' => 'Titre de l\'avis',
+                'constraints' => new Length(
+                    [
+                        'max' => 17,
+                    ]
+                ), 
                 ])
             ->add('content', TextareaType::class, [
                 'label' => 'Descriptif',
-                'attr' => ['rows' => '4']
+                'attr' => ['rows' => '4'],
+                'constraints' => new Length(
+                    [
+                        'max' => 370,
+                    ]
+                ),
                 ])
             ->add('name', TextType::class, [
                 'label' => 'Nom du rédacteur',

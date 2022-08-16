@@ -36,18 +36,35 @@
             </div>
         {% endfor %}
         
-        <div class="col order-2 col-lg-8">
-            {% for feedback in feedbacks %}
+        <section class="col order-2 col-lg-7 slidder">
+            
+            
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" checked/>
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
+            
+            
+            
+            <main id="carousel">
 
+                {% for feedback in feedbacks %}
+              <div class="item">
                 <section class="card-feedback">
                     <h3>{{ feedback.title }}</h3>
                     <p>{{ feedback.content }}</p>
-                    <h2 class="d-flex justify-content-end">{{ feedback.name }}</h2>
+                    <h2 class="d-flex justify-content-end position-absolute bottom-0 end-0 mx-3">{{ feedback.name }}</h2>
                 </section>
-            
-            {% endfor %}
-        </div><!-- /.right col -->
+              </div>
+                {% endfor %}
 
+            </main>
+             
+        </section><!-- /.right col -->
+        
     </div>
     
 {% endblock %}
