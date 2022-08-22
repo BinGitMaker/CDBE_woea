@@ -5,7 +5,7 @@
 {% block content %}
     
     {% for about in abouts %}
-        <div class="row row-featurette d-flex flex-column flex-md-row position-relative">
+        <div class="row row-description d-flex flex-column flex-md-row position-relative">
             <div class="col col-md-6 col-lg-3 d-flex flex-column align-items-center order-2 order-md-1 my-5 mb-0 my-md-0 my-lg-5 mb-lg-0">
                 
                 <!-- groupe title only for mobile version -->
@@ -69,58 +69,58 @@
             </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
 
-        <!-- START THE FEATURETTES -->
+        <!-- START THE DESCRIPTION -->
         <div class="container my-5 my-lg-0">
         
-            <div class="row row-featurette">
+            <div class="row row-description">
                 <div class="col-lg-7">
-                    <h2 class="featurette-heading">{{ about.title1 }}</h2>
+                    <h2 class="description-heading">{{ about.title1 }}</h2>
                     <p class="lead">{{ about.description1 }}</p>
                 </div>
                 <div class="col-lg-5 d-flex justify-content-center">
                     <img class="img-home bd-placeholder-img bd-placeholder-img-lg img-fluid " 
                     src="{{ asset('/uploads/images/' ~ about.pics1) }}" 
-                    width="500" height="500"
+                    
                     focusable="false" role="img" 
                     alt="{{ about.title1 }}">
                 </div>
             </div>
 
-            <p class="featurette-divider"></p>
+            <p class="description-divider"></p>
 
-            <div class="row row-featurette">
+            <div class="row row-description">
                 <div class="col-lg-7 order-md-2">
-                    <h2 class="featurette-heading">{{ about.title2 }}</h2>
+                    <h2 class="description-heading">{{ about.title2 }}</h2>
                     <p class="lead">{{ about.description2 }}</p>
                 </div>
                 <div class="col-lg-5 d-flex justify-content-center">
                     <img class="img-home bd-placeholder-img bd-placeholder-img-lg img-fluid " 
                     src="{{ asset('/uploads/images/' ~ about.pics2) }}" 
-                    width="500" height="500"
+                    
                     focusable="false" role="img" 
                     alt="{{ about.title2 }}">
                 </div>
             </div>
 
-            <p class="featurette-divider"></p>
+            <p class="description-divider"></p>
 
-            <div class="row row-featurette">
+            <div class="row row-description">
                 <div class="col-lg-7">
-                    <h2 class="featurette-heading">{{ about.title3 }}</h2>
+                    <h2 class="description-heading">{{ about.title3 }}</h2>
                     <p class="lead">{{ about.description3 }}</p>
                 </div>
                 <div class="col-lg-5 d-flex justify-content-center">
                     <img class="img-home bd-placeholder-img bd-placeholder-img-lg img-fluid " 
                     src="{{ asset('/uploads/images/' ~ about.pics3) }}" 
-                    width="500" height="500"
+                    
                     focusable="false" role="img" 
                     alt="{{ about.title3 }}">
                 </div>
             </div>
         
-            <p class="featurette-divider"></p>    
+            <p class="description-divider"></p>    
 
-        <!-- /END THE FEATURETTES -->
+        <!-- /END THE descriptionS -->
         </div>
     {% endfor %}
 
