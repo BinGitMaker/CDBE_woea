@@ -17,3 +17,33 @@ a.btn.footer.btn-ext{
     width: 10rem;
     margin-inline: 0.5rem;
 }
+div.flower{
+    padding:0;
+}
+
+img.flower{
+    position: none;
+    height: 120px;
+    object-fit: cover;
+    
+}
+
+@media (min-width:1023px) {
+    img.flower{
+        position: absolute;
+        bottom:0;
+        right:0;
+        padding: 0 30px 0 0;//top - right - bottom - left
+        object-fit: cover;
+    }
+}
+
+@media (min-width:768px) {
+    img.flower{
+        position: absolute;
+        bottom:0;
+        right:0;
+        padding: 0;//top - right - bottom - left
+        object-fit: contain;
+    }
+}
