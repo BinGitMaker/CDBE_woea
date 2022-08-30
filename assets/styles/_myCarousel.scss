@@ -12,7 +12,7 @@ section.slidder {
   margin: 0;
   display: grid;
   grid-template-rows: 500px 100px;
-  grid-template-columns: 1fr 30px 30px 30px 30px 30px 30px 30px 1fr;
+  grid-template-columns: 1fr 30px 30px 30px 30px 30px 30px 30px 30px 30px 1fr;
   align-items: center;
   justify-items: center;
 }
@@ -28,8 +28,8 @@ main#carousel {
   overflow: hidden;
   transform-style: preserve-3d;
   perspective: 600px;
-  --items: 7;
-  --middle: 4;
+  --items: 9;
+  --middle: 5;
   --position: 1;
   pointer-events: none;
 }
@@ -74,6 +74,16 @@ div.item:nth-of-type(6) {
 
 div.item:nth-of-type(7) {
   --offset: 7;
+ 
+}
+
+div.item:nth-of-type(8) {
+  --offset: 8;
+ 
+}
+
+div.item:nth-of-type(9) {
+  --offset: 9;
  
 }
 
@@ -132,4 +142,20 @@ input:nth-of-type(7) {
 }
 input:nth-of-type(7):checked ~ main#carousel {
   --position: 7;
+}
+
+input:nth-of-type(8) {
+  grid-column: 9 / 10;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(8):checked ~ main#carousel {
+  --position: 8;
+}
+
+input:nth-of-type(9) {
+  grid-column: 10 / 11;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(9):checked ~ main#carousel {
+  --position: 9;
 }

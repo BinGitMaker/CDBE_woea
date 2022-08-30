@@ -5,13 +5,21 @@
 {% block body %}
 <h1 class="d-flex justify-content-center text-bg-info">Gestion des avis</h1>
 
+<button type="button" class="btn btn-success col-2 m-3">
+    <a class="text-decoration-none text-light" href="{{ path('admin_feedback_new') }}">
+        CREER UN AVIS
+    </a>
+</button>
     <table class="table">
         <thead>
             <tr>
-                <th>Titre de l'avis</th>
-                <th>Descriptif</th>
-                <th>Nom du rédacteur</th>
-                <th>A la une</th>
+                <th class="col-2">Titre </th>
+                <th class="col-6">Descriptif</th>
+                <th class="col-2">Rédacteur</th>
+                <th class="col-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="icon icon-tabler icon-tabler-heart"  viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572"></path>
+                 </svg></th>
                 
             </tr>
         </thead>
@@ -21,9 +29,21 @@
                 <td>{{ feedback.title }}</td>
                 <td>{{ feedback.content }}</td>
                 <td>{{ feedback.name }}</td>
-                <td>{{ feedback.isBest ? 'Oui' : 'Non' }}</td>
                 <td>
-                    <button type="button" class="btn btn-primary mb-2">
+                    {% if feedback.isBest == 0 %}
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                                    </div>
+                                {% else %}
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                                </div>
+                            {% endif %}
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary m-2 editDelete">
                         <a class="text-decoration-none text-light" href="{{ path('admin_feedback_edit', {'id': feedback.id}) }}">
                             MODIFIER 
                         </a>
@@ -40,5 +60,4 @@
         </tbody>
     </table>
 
-    <a href="{{ path('admin_feedback_new') }}">Create new</a>
 {% endblock %}

@@ -27,12 +27,12 @@
                 <td>{{ mass_category.name }}</td>
                 <td>
                     <div class="d-flex flex-row"></div>
-                    <button type="button" class="btn btn-primary mb-2">
+                    <button type="button" class="btn btn-primary m-2 editDelete">
                         <a class="text-decoration-none text-light" href="{{ path('admin_mass_category_edit', {'id': mass_category.id}) }}">
                             MODIFIER 
                         </a>
                     </button>
-                    {{ include('admin/mass_category/_delete_form.html.twig') }}
+                   {#  {{ include('admin/mass_category/_delete_form.html.twig') }} #}
                 </td>
             </tr>
         {% else %}

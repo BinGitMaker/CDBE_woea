@@ -29,36 +29,6 @@ class LogoType extends AbstractType
                     ])
                 ], 
             ])
-            ->add('logoProInversed', FileType::class, [
-                'label' => 'Logo contrasté',
-                'mapped' => false,
-                'constraints' => [
-                    new File([
-                        'maxSize' => '2M',
-                        'mimeTypes' => [
-                            'image/jpeg',
-                            'image/png',
-                            'image/svg+xml'
-                        ],
-                        'mimeTypesMessage' => 'Merci de charger une photo valide',
-                    ])
-                ], 
-            ])
-            ->add('banner', FileType::class, [
-                'label' => 'banniere curve sur la home',
-                'mapped' => false,
-                'constraints' => [
-                    new File([
-                        'maxSize' => '2M',
-                        'mimeTypes' => [
-                            'image/jpeg',
-                            'image/png',
-                            'image/svg+xml'
-                        ],
-                        'mimeTypesMessage' => 'Merci de charger une photo valide',
-                    ])
-                ], 
-            ])
         ;
     }
 

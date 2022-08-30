@@ -3,51 +3,31 @@
 {% block title %}Logo index{% endblock %}
 
 {% block body %}
-    <h1>Logo index</h1>
+<h1 class="d-flex justify-content-center text-bg-info">Gestion du Logo du cabinet</h1>
 
     <table class="table">
-        <thead>
-            <tr>
-                
-                <th>LogoPro</th>
-                <th>LogoProInversed</th>
-                <th>Banner</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+        
+       
         {% for logo in logos %}
             <tr>
             
-                <td><img class="bd-placeholder-img bd-placeholder-img-lg img-fluid " 
+
+                <img class="bd-placeholder-img bd-placeholder-img-lg img-fluid " 
                     src="{{ asset('/uploads/images/' ~ logo.logoPro) }}" 
-                    
+                    height="500" width="500"
                     alt="{{ logo.logoPro }}">
                     
-                </td>
-                <td><img class="bd-placeholder-img bd-placeholder-img-lg img-fluid " 
-                    src="{{ asset('/uploads/images/' ~ logo.logoProInversed) }}" 
-                    
-                    alt="{{ logo.logoProInversed }}">
-                    
-                <td>
-                <td><img class="bd-placeholder-img bd-placeholder-img-lg img-fluid " 
-                    src="{{ asset('/uploads/images/' ~ logo.banner) }}" 
-                    
-                    alt="{{ logo.banner }}">
-                    
-                <td>
-                    
-                    <a href="{{ path('admin_logo_edit', {'id': logo.id}) }}">edit</a>
-                </td>
+                
+                <button type="button" class="btn btn-primary mb-2">
+                    <a class="text-decoration-none text-light" href="{{ path('admin_logo_edit', {'id': logo.id}) }}">
+                        MODIFIER 
+                    </a>
+                </button>
+                
             </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
+       
         {% endfor %}
-        </tbody>
+       
     </table>
 
-    <a href="{{ path('admin_logo_new') }}">Create new</a>
 {% endblock %}

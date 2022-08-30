@@ -6,7 +6,7 @@
     
     <h1 class="d-flex justify-content-center text-bg-info">Gestion des catégories de produits</h1>
    
-    <a class="h5 p-3" href="{{ path('admin_massage_index') }}"><< Retour aux massages</a>
+    <a class="h5 p-3" href="{{ path('admin_product_index') }}"><< Retour aux produits</a>
 
     <div class="row d-flex justify-content-start "> 
         <button type="button" class="btn btn-success col-2 m-3">
@@ -28,7 +28,7 @@
                     <td>{{ prod_category.name }}</td>
                     <td>
                         <div class="d-flex flex-row"></div>
-                        <button type="button" class="btn btn-primary mb-2">
+                        <button type="button" class="btn btn-primary m-2 editDelete">
                             <a class="text-decoration-none text-light" href="{{ path('admin_prod_category_edit', {'id': prod_category.id}) }}">
                                 MODIFIER 
                             </a>
