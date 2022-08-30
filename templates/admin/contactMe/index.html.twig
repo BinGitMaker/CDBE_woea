@@ -29,7 +29,7 @@
                     src="{{ asset('/uploads/images/' ~ contactMe.map) }}" 
                     alt="{{ contactMe.address1 }}"></td>
                 <td>
-                    <button type="button" class="btn btn-primary mb-2">
+                    <button type="button" class="btn btn-primary m-2 editDelete">
                         <a class="text-decoration-none text-light" href="{{ path('admin_contactMe_edit', {'id': contactMe.id}) }}">
                             MODIFIER 
                         </a>

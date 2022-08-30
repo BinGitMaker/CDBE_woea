@@ -32,16 +32,12 @@ class LogoController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             
             $logoPro = $form->get('logoPro')->getData();
-            $logoProInversed = $form->get('logoProInversed')->getData();
-            $banner = $form->get('banner')->getData();
+
             if($logoPro && $logoProInversed && $banner){
                 
                 $logoProName = $fileUploader->upload($logoPro);
-                $logoProInversedName = $fileUploader->upload($logoProInversed);
-                $bannerName = $fileUploader->upload($banner);
-                $logo   ->setLogoPro($logoProName)
-                        ->setLogoProInversed($logoProInversedName)
-                        ->setBanner($bannerName);
+                $logo   ->setLogoPro($logoProName);
+                       
             }
             $logoRepository->add($logo, true);
 
@@ -63,16 +59,12 @@ class LogoController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $logoPro = $form->get('logoPro')->getData();
-            $logoProInversed = $form->get('logoProInversed')->getData();
-            $banner = $form->get('banner')->getData();
+           
             if($logoPro && $logoProInversed && $banner){
                 
                 $logoProName = $fileUploader->upload($logoPro);
-                $logoProInversedName = $fileUploader->upload($logoProInversed);
-                $bannerName = $fileUploader->upload($banner);
-                $logo   ->setLogoPro($logoProName)
-                        ->setLogoProInversed($logoProInversedName)
-                        ->setBanner($bannerName);
+                $logo   ->setLogoPro($logoProName);
+                        
             }
             $logoRepository->add($logo, true);
 
