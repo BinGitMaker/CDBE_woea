@@ -15,7 +15,10 @@ class SendMsg
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    private ?string $firstname = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
     private ?string $mail = null;
@@ -28,14 +31,26 @@ class SendMsg
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->name;
+        return $this->firstname;
     }
 
-    public function setName(string $name): self
+    public function setFirstname(string $firstname): self
     {
-        $this->name = $name;
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): self
+    {
+        $this->lastname = $lastname;
 
         return $this;
     }
