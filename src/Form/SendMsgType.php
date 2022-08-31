@@ -5,12 +5,15 @@ namespace App\Form;
 use App\Entity\SendMsg;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use VictorPrdh\RecaptchaBundle\Form\ReCaptchaType;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
+
 
 class SendMsgType extends AbstractType
 {
@@ -56,7 +59,8 @@ class SendMsgType extends AbstractType
                 'attr' => [
                     'placeholder' => 'En quoi puis-je vous aider?',
                     'rows' => 12 ]
-                ])
+            ])
+            ->add('captcha', ReCaptchaType::class)
             ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer',
                 'attr' => [
