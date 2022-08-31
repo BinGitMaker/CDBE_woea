@@ -13,73 +13,60 @@
             <div class="d-flex justify-content-center">
                 <div class="card contact-card">
                     <div class="card-body d-flex flex-column align-items-center">
-                    <h3 class="card-text d-flex justify-content-center  my-auto">Téléphone : {{ contactMe.phone }}</h5>
-                    <h3 class="card-text d-flex justify-content-center  my-auto">Mail : {{ contactMe.mail }}</h5>
+                        <h3 class="card-text d-flex justify-content-center  my-auto">Téléphone : {{ contactMe.phone }}</h5>
+                        <h3 class="card-text d-flex justify-content-center  my-auto">Mail : {{ contactMe.mail }}</h5>
                     </div>
                 </div>
             </div>
         </section>
-        {{ form_start(form) }} 
+        
         <section class="top-content row">
-
+            
             <div class="col-3">
                 {% for about in abouts %}
-                <img class="bd-placeholder-img rounded-circle my-4" 
-                src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
-                width="300" height="300"
-                focusable="false" role="img" 
-                alt="{{ about.illustration }}">
+                    <img class="bd-placeholder-img rounded-circle my-4" 
+                    src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
+                    width="300" height="300"
+                    focusable="false" role="img" 
+                    alt="{{ about.illustration }}">
                 {% endfor %}
+
+                <p class="mt-4 text-center">
+                    <a class="btn btn-rdv btn-dark bg-primary text-light" href="#" role="button">PRENEZ RENDEZ-VOUS &raquo;</a>
+                </p>
             </div>
 
             <div class="col-6 px-5">
                 
-                <h3 class="d-flex justify-content-center my-5 mb-3">Vous avez une question ?</h3>
+                <h3 class="d-flex justify-content-center my-5 mb-3">Prenez contact avec Sandrine :</h3>
+                    {% for message in app.flashes('notice') %}
+                        <div class="alert alert-info">{{ message }}</div>
+                    {% endfor %}
                 <div class="d-flex flex-column justify-content-end">
-                    
-                <p class="my-4 mb-0">Votre nom :
+                    {{ form(form) }}
+               {#  <p class="my-4 mb-0">Votre nom :
                     <p class="m-0">{{ form(form.name) }}</p>
                 </p>
 
                 <p class="my-3 mb-0">Votre email :
                     <p class="m-0">{{ form(form.mail) }}</p>
-                </p>
+                </p> #}
                 </div>
                 
                 
             </div>
 
 
-            <div class="col-3 d-flex align-items-center">
-                {% for logo in logos %}
-                    <img class="bd-placeholder-img bd-placeholder-img-lg img-fluid " 
+            <div class="col-3 d-flex flex-column align-items-center">
+                {% if contactMe.address2 is empty %}
+
+                    {% for logo in logos %}
+                        <img class="bd-placeholder-img bd-placeholder-img-lg img-fluid " 
                         src="{{ asset('/uploads/images/' ~ logo.logoPro) }}"
                         width="300" height="300" 
                         alt="{{ logo.logoPro }}">
-                {% endfor %}
-            </div>
+                    {% endfor %}
 
-        </section>
-
-        <section class="bottom-content row">
-
-            <div class="col-9 px-5">Votre message :
-                <p class="m-0 ">{{ form(form.message) }}</p>
-                    
-                <p class="my-0 mt-5 col-3">
-                    {{ form_end(form) }} 
-                    {# <a href="#" class="btn col-2 w-25 btn-light btn-ext"></a> #}
-                </p>
-            </div>
-
-            <div class="col-3 d-flex flex-column align-items-center">
-               
-                {% if contactMe.address2 is empty %}
-
-                    <p class="my-4 mb-5 text-center">
-                        <a class="btn btn-rdv btn-dark bg-primary text-light" href="#" role="button">PRENEZ RENDEZ-VOUS &raquo;</a>
-                    </p>
-                    
                     <img class="bd-placeholder-img rounded my-0 mb-2" 
                     src="{{ asset('/uploads/images/' ~ contactMe.map) }}" 
                     width="250" height="250"
@@ -89,24 +76,52 @@
                     <h4 class="text-center">{{ contactMe.address1|raw }}</h4>
 
                 {% else %}
+                    <img class="bd-placeholder-img rounded my-0 mb-2" 
+                    src="{{ asset('/uploads/images/' ~ contactMe.map) }}" 
+                    width="250" height="250"
+                    focusable="false" role="img" 
+                    alt="{{ contactMe.address1|raw }}">
 
                     <h3 class="text-center">{{ contactMe.address1|raw }}</h3>
                     <br>
                     <h3 class="text-center py-3">OU</h3>
                     <br>
+                    <img class="bd-placeholder-img rounded my-0 mb-2" 
+                    src="{{ asset('/uploads/images/' ~ contactMe.map) }}" 
+                    width="250" height="250"
+                    focusable="false" role="img" 
+                    alt="{{ contactMe.address1|raw }}">
                     <h3 class="text-center py-3 ">{{ contactMe.address2|raw }}</h3>
 
-                    <p class="mt-4 text-center">
-                        <a class="btn btn-rdv btn-dark bg-primary text-light" href="#" role="button">PRENEZ RENDEZ-VOUS &raquo;</a>
-                    </p>
+                    
 
                 {% endif %}
                 
             </div>
 
         </section>
-        
 
+        <section class="bottom-content row">
+
+            {# <div class="col-9 px-5">Votre message :
+                <p class="m-0 ">{{ form(form.message) }}</p>
+                
+                <p class="my-0 mt-5 col-3"> #}
+                    
+                    {# <a href="#" class="btn col-2 w-25 btn-light btn-ext"></a> #}
+                {# </p>
+            </div> #}
+            
+            
+            <div class="col-3 d-flex flex-column align-items-center">
+               
+                
+                
+            </div>
+
+        </section>
+        
+        
     {% endfor %}
 
 {% endblock %}
