@@ -42,16 +42,31 @@
                     {% for message in app.flashes('notice') %}
                         <div class="alert alert-info">{{ message }}</div>
                     {% endfor %}
-                <div class="d-flex flex-column justify-content-end">
-                    {{ form(form) }}
-               {#  <p class="my-4 mb-0">Votre nom :
-                    <p class="m-0">{{ form(form.name) }}</p>
-                </p>
 
-                <p class="my-3 mb-0">Votre email :
-                    <p class="m-0">{{ form(form.mail) }}</p>
-                </p> #}
+                {{ form_start(form) }}
+
+                <div class="d-flex flex-column justify-content-end">
+
+                    {{ form_row(form.firstname) }}
+                    {{ form_errors(form.firstname) }}
+
+                    {{ form_row(form.lastname) }}
+                    {{ form_errors(form.lastname) }}
+
+                    {{ form_row(form.mail) }}
+                    {{ form_errors(form.mail) }}
+
+                    {{ form_row(form.message) }}
+                    {{ form_errors(form.message) }}
+
+                    {{ form_row(form.captcha) }}
+                    {{ form_errors(form.captcha) }}
+
                 </div>
+                <br>
+                {{ form_row(form.submit) }}
+
+                {{ form_end(form) }}
                 
                 
             </div>
