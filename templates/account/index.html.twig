@@ -5,7 +5,7 @@
 {% block content %}
 
     <h1>Mon compte</h1>
-    Bienvenue {{ app.user.firstname }} dans votre espace
+    Bienvenue {{ app.user.firstname|e('js') }} dans votre espace
 
     <hr>
     {% if is_granted('ROLE_ADMIN') %}

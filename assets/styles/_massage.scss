@@ -142,9 +142,48 @@
 /* MASSAGE SHOW ------------------------- */
 .img-massage{
     border-radius: 20px;
-    min-height: 50vh; 
-    min-width: 80vh;
-   
+    width: 300px;
+    object-fit: cover;
+}
+
+@media (min-width: 375px) {
+    .img-massage{
+        border-radius: 20px;
+        width: 320px;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 425px) {
+    .img-massage{
+        border-radius: 20px;
+        width: 350px;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 768px) {
+    .img-massage{
+        border-radius: 20px;
+        width: 600px;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 1024px) {
+    .img-massage{
+        border-radius: 20px;
+        width: 550px;
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 1440px) {
+    .img-massage{
+        border-radius: 20px;
+        width: 700px;
+        object-fit: cover;
+    }
 }
 
 /* MASSAGE: FEEDBACK CAROUSEL ------------------------- */
