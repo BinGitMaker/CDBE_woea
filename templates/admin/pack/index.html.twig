@@ -15,16 +15,18 @@
         </button>
     </div>
 
-    <div class="text-danger">*** Pour des raisons de mise en page le site devra toujours respecter l'ecriture du NOM [title]-[durée]-[prix]-[public] ***</div>
-
     <table class="table">
         <thead>
             <tr>
                 
                 <th>Durée</th>
-                <th>Pricx</th>
+                <th>Prix</th>
                 <th>Public</th>
-                <th>Nom (descriptif)</th>
+                <th>Nom (descriptif)
+                    <div class="text-danger">*** Pour des raisons de mise en page, <br>
+                         l'ecriture du NOM devra toujours respecter : <br>
+                         [title]-[durée]-[prix]-[public] ***</div>
+                </th>
                 <th>Séance seule</th>
                 <th>Modalité</th>
                 
@@ -51,7 +53,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8">pas de forfaits enregistrés</td>
             </tr>
         {% endfor %}
         </tbody>

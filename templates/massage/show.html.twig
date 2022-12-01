@@ -14,40 +14,48 @@
     <br>
     <br>
    
-        <div class="row"> 
+        <div class="row justify-content-between"> 
             <div class="d-md-flex col-left colMassage col-lg-3 d-flex flex-column align-items-center "><!-- col-left -->
-                
-                    {% include 'massage/_massagesList.html.twig' %}
+                <p class="">
+                    <a class="btn btn-rdv btn-dark bg-primary text-light" href="#" role="button">PRENEZ RENDEZ-VOUS </a>
+                </p>
+                <br>
+                {% include 'massage/_massagesList.html.twig' %}
                 
                 <div class="d-none d-lg-flex flex-lg-column">{% include 'massage/_feedback.html.twig' %}</div>
-                <p class="mt-4 ">
-                    <a class="btn btn-rdv btn-dark bg-primary text-light" href="#" role="button">PRENEZ RENDEZ-VOUS &raquo;</a>
-                </p>
+                    
+
+                {% for contactMe in contactMes %}
+                
+                <div class="mb-lg-4 py-3 text-center">
+                    <h5 class="intervention">INTERVENTIONS EXTERIEURES</h5>
+                    <p class="intervention">Entreprises <br>
+                    Ecole, EHPAD, Hôtel...</p>
+                    <div class="d-flex justify-content-center">
+                        <a class="btn btn-contact bg-light text-primary" href="{{ path('contactMe') }}" role="button">CONTACTEZ-MOI</a>
+                    </div>
+                </div>
+                {% endfor %}
+                
             </div><!-- /.col-left for middle sreen and desktop only-->
 
-            <div class="col-center col-lg-1 "><!-- col-divided -->
-                
-            </div><!-- /.col-divided -->
+            <div class="col-center col-lg-1 "></div><!-- col-divided -->
 
             <div class="col-right col-12 col-lg-8 p-0"><!-- col-right -->
-                <div class="row">
-                    
-                        <section class="container massage-title d-flex justify-content-center my-5">
-                            <div class="col-9 d-flex justify-content-center align-items-center position-relative">
-                                <img class="img-massage bd-placeholder-img bd-placeholder-img-lg opacity-50" 
-                                src="{{ asset('/uploads/images/' ~ massage.illustration) }}" 
-                                focusable="false" role="img" 
-                                alt="{{ massage.title }}">
-                                <h1 class="massage-maintitle position-absolute display-1 text-primary text-center">{{ massage.title }}</h1>
-                            </div>
-                        </section>
+                
+                <div class="img-content col-9 d-flex justify-content-center align-items-center position-relative mb-3">
+                    <img class="img-massage bd-placeholder-img bd-placeholder-img-lg opacity-25" 
+                    src="{{ asset('/uploads/images/' ~ massage.illustration) }}" 
+                    focusable="false" role="img" 
+                    alt="{{ massage.title }}">
+                    <h1 class="massage-maintitle position-absolute display-1 text-primary text-center">{{ massage.title }}</h1>
                 </div>
 
-                <section class="container d-flex justify-content-center p-0" >
+                <div class="pack-content">
                     {% include 'massage/_package.html.twig' %}
-                </section>
-                
-                <div>
+                </div>
+                            
+                <div class="description-content">
                     <div class="row">
                         <div class="col-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">

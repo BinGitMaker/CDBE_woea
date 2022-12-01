@@ -9,20 +9,23 @@
             <div class="col col-md-6 col-lg-3 d-flex flex-column align-items-center order-2 order-md-1 my-5 mb-0 my-md-0 my-lg-5 mb-lg-0">
                 
                 <!-- groupe title only for mobile version -->
-                <h1 class="d-md-none text-center display-1">Sandrine Picod</h1>
+                <h1 class="d-md-none text-center display-1">E.I. Sandrine Picod</h1>
                 <h5 class="d-md-none text-center">hommes, femmes, enfants</h5>
                 <h4 class="d-md-none text-center"><small>{{ about.undertitle|raw }}</small></h4>
 
                 <img class="bd-placeholder-img rounded-circle my-4 mb-0 my-md-0 my-lg-5 mb-lg-0" 
                 src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
-                width="300" height="300"
+                width="260" height="260"
                 focusable="false" role="img" 
                 alt="{{ about.illustration }}">
 
                 {% for contactMe in contactMes %}
-                <p class="mt-4 py-3 text-center">
-                    <a class="btn btn-contact btn-light bg-light text-primary" href="{{ path('contactMe') }}" role="button">CONTACTEZ-MOI &raquo;</a>
-                </p>
+                <div class="mb-lg-4 py-3 text-center">
+                    <h5 class="intervention">INTERVENTIONS <br> EXTERIEURES</h5>
+                    <p class="intervention">Entreprises <br>
+                    Ecole, EHPAD, Hôtel...</p>
+                    <a class="btn btn-contact bg-light text-primary" href="{{ path('contactMe') }}" role="button">CONTACTEZ-MOI &raquo;</a>
+                </div>
                 {% endfor %}
             </div><!-- /.col-lg-4 -->
             <div class="my-5 my-md-3 d-lg-none"></div>
@@ -46,7 +49,7 @@
                 {% endfor %}
                 <!-- groupe title only for desktop and middle screen version -->
                 <section class="main-title-group py-md-0 py-lg-5 pb-lg-0 ">
-                    <h1 class="d-none d-md-flex justify-content-md-center display-md-3 display-lg-1 my-md-2 py-md-5 pb-md-0 ">Sandrine Picod</h1>
+                    <h1 class="sandrineTitle d-none d-md-flex justify-content-md-center display-md-3 display-lg-1 my-md-2 py-md-5 py-lg-1 pb-md-0 ">E.I. Sandrine Picod</h1>
                     
                     <h5 class="d-none d-md-flex justify-content-md-center">hommes, femmes, enfants</h5>
             
@@ -70,7 +73,7 @@
         </div><!-- /.row -->
 
         <!-- START THE DESCRIPTION -->
-        <div class="container my-5 my-lg-0">
+        <div class="container my-3 my-lg-0">
         
             <div class="row row-description">
                 <div class="col-lg-7">
@@ -124,15 +127,7 @@
         </div>
     {% endfor %}
 
-    <section class="buttons-rdv-contact">
-        <p class="mt-4 d-flex justify-content-center">
-            <a class="btn btn-mesPresta bg-none border border-primary border-2 text-primary px-5" href="/mes-prestations/detente-relaxation/Segmentaire" role="button">MES PRESTATIONS EN CABINET &raquo;</a>
-        </p>
     
-        <p class="mt-4 d-flex justify-content-center">
-            <a class="btn btn-rdv btn-dark bg-primary text-light px-3" href="#" role="button">PRENEZ RENDEZ-VOUS &raquo;</a>
-        </p>
-    </section>
     
 
 {% endblock %}

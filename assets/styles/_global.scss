@@ -1,10 +1,20 @@
 *{
     color: #345A92;
+    
 }
 
+html{
+    overflow-x: hidden;
+  }
+
 body {
+    margin: 0;
+    padding: 0;
     background-image: linear-gradient(180deg, #B6DFE4 0%, #ECF2F5 26.9%, #ECF2F5 48.87%, #DEF0F2 67.15%, #B6DFE4 88.54%, #B6DFE4 99.99%);
     padding-bottom: 3rem;
+    height: 100vh;
+    width:100vw;
+    overflow-x: hidden;
 }
 
 h1, h2{
@@ -32,20 +42,66 @@ h1, h2{
 }
 /* BUTTONS AND FRAMES------------------------- */
 
-/* CONTACT ------------------------- */
-a.btn-contact{
-    box-shadow: 0px 4px 4px #B6DFE4;
-    border-radius: 60px; 
-    width: 15rem;
-    font-weight: bolder;
+a.btn{
+    font-family: 'Quicksand', sans-serif;
 }
 
+/* CONTACT ------------------------- */
+a.btn-contact{
+    border: 2px solid #B6DFE4;
+    border-radius: 60px; 
+    box-shadow: 0px 4px 4px #B6DFE4;
+    width: 13.5rem;
+    height: 2.8rem;
+    position: relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin:0;
+    
+}
+
+a.btn-contact::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 20px;   
+    border: 2px solid #B6DFE4;
+    border-radius: 60px; 
+    background: rgba(255,255,255,0.4);
+    transform: rotate(-45deg);
+    left: -150px;
+}
+
+a.btn-contact:hover {
+    box-shadow: 0 0 50px -20px #B6DFE4 inset;
+}
+
+a.btn-contact:hover::before {
+    transition: all 0.3s linear;
+    width: 120%;
+    height: 150%;
+    border: 2px solid transparent;
+    border-radius: 60px; 
+}
+
+
+/* PRESTA ------------------------- */
 a.btn-mesPresta{
     box-shadow: 0px 4px 4px #B6DFE4;
     border-radius: 60px; 
-    width: 20rem;
-    font-weight: bolder;
+    width: 22rem;
+    border: 2px solid #345A92;
+    color: #345A92;
 
+}
+
+a.btn-mesPresta:hover {
+    box-shadow: 0px 4px 4px #B6DFE4;
+    border: 2px solid #345A92;
+    color: #ECF2F5;
+    background: #345A92;
 }
 
 /* PRENEZ RDV ------------------------- */
@@ -53,8 +109,17 @@ a.btn-mesPresta{
 .btn.btn-rdv{
     box-shadow: 0px 4px 4px #345A92;;
     border-radius: 60px;
-    border:none;
+    border: 2px solid #345A92;
     width: 15rem;
     font-weight: bolder;
+    background: #345A92;
+    color:#ECF2F5;
+}
+
+.btn.btn-rdv:hover {
+    box-shadow: 0px 4px 4px #B6DFE4;
+    background: #B6DFE4;
+    border: 2px solid #345A92;
+    color: #345A92;
 }
 

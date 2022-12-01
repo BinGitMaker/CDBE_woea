@@ -29,13 +29,13 @@
 @media (max-width:959px) {
     .button {
         font-size: 1rem;
-}
+    }
 }
 
 @media (max-width:767px) {
     .button {
         font-size: 0.75rem;
-}
+    }
 }
 
 
@@ -86,6 +86,28 @@
 }
 
 /* MASSAGE LIST ------------------------- */
+@media (max-width: 990px) {
+    h2.list-title{
+        font-size: 28px;
+    }        
+    .massage-title{
+        font-size: 24px;
+    }   
+     
+}
+
+
+.text-oil{
+    font-family: 'Quicksand', sans-serif;
+}
+
+@media (max-width: 1400px) {
+    .text-oil{
+        font-size: 16px;
+    }
+     
+}
+
 .massage-title{
     text-decoration: none;
 }
@@ -111,6 +133,7 @@
     border-radius: 15px;
     color:#345A92;
     width: 100%;
+    
 }
 
 @media (min-width: 1000px) {
@@ -124,6 +147,7 @@
 @media (max-width: 1000px) {
     .card-massage-list{
         display: none;
+        
     }        
 }
 
@@ -138,53 +162,37 @@
 
 }
 
+/* DEVIDER------------------------- */
+.col-center{
+    width: 10px;
+}
 
 /* MASSAGE SHOW ------------------------- */
+
+.img-content{
+    width: 100%;
+}
+
+.pack-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.description-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-inline:auto;
+}
+
 .img-massage{
     border-radius: 20px;
-    width: 300px;
+    width: 100%;
     object-fit: cover;
 }
 
-@media (min-width: 375px) {
-    .img-massage{
-        border-radius: 20px;
-        width: 320px;
-        object-fit: cover;
-    }
-}
 
-@media (min-width: 425px) {
-    .img-massage{
-        border-radius: 20px;
-        width: 350px;
-        object-fit: cover;
-    }
-}
-
-@media (min-width: 768px) {
-    .img-massage{
-        border-radius: 20px;
-        width: 600px;
-        object-fit: cover;
-    }
-}
-
-@media (min-width: 1024px) {
-    .img-massage{
-        border-radius: 20px;
-        width: 550px;
-        object-fit: cover;
-    }
-}
-
-@media (min-width: 1440px) {
-    .img-massage{
-        border-radius: 20px;
-        width: 700px;
-        object-fit: cover;
-    }
-}
 
 /* MASSAGE: FEEDBACK CAROUSEL ------------------------- */
 .card-feedback-best{
@@ -209,17 +217,48 @@
 }
 
 /* MASSAGE: PACKAGE ------------------------- */
+
+
 .card-package{
     background-image: linear-gradient(180deg, #B6DFE4 0%, #DEF0F2 52.08%, #ECF2F5 100%);
-    margin: 0rem 2rem 2rem 2rem;
+    margin: 0rem 0rem 2rem 0rem;
     padding: 1.5rem 1.8rem 0.5rem 1.8rem; //top - right - bottom - left
     box-shadow: 0px 4px 4px #B6DFE4;
     border-radius: 15px;
     color:#345A92;
 }
 
+/* MASSAGE COL RIGHT: MEDIA QUERY ------------------------- */
+@media (min-width: 375px) {
+    .img-massage, .card-package, .description-content{
+        
+        width: 320px;
+        
+    }
+}
 
+@media (min-width: 425px) {
+    .img-massage, .card-package, .description-content{
+        
+        width: 350px;
+        
+    }
+}
 
+@media (min-width: 768px) {
+    .img-massage, .card-package, .description-content{
+        
+        width: 600px;
+        
+    }
+}
+
+@media (min-width: 1440px) {
+    .img-massage, .card-package, .description-content{
+        width: 850px;
+        
+    }
+}
 
 
 
