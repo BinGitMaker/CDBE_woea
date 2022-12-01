@@ -34,6 +34,14 @@
 
 
 /* Sandrine title */
+
+@media (min-width: 1400px) {
+    .sandrineTitle{
+        font-size: 60px;
+    }
+    
+}
+
 @media (max-width: 1660px) {
     .row-description{
         justify-content: center;
@@ -55,6 +63,10 @@
     background: none;
     border: 2px solid #345A92;
     border-radius: 30px;
+}
+
+.intervention{
+    font-family: "Quicksand";
 }
 
 .card-title{

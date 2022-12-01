@@ -3,18 +3,34 @@
 {% block title %}Mon compte : Cabinet de Bien-Être-Sandrine-Picod{% endblock %}
 
 {% block content %}
-
-    <h1>Mon compte</h1>
-    Bienvenue {{ app.user.firstname|e('js') }} dans votre espace
-
-    <hr>
+    <h1 class="d-flex justify-content-center">Mon compte</h1>
+    <p class="welcome d-flex justify-content-center">Bienvenue {{ app.user.firstname|e('js') }} dans votre espace</p>
+    <a href="{{ path('home') }}">Retourner à l'accueil</a> <br/>
+    
     {% if is_granted('ROLE_ADMIN') %}
-    - <a href="/admin/about">Vous etes admin, accèder au back office.</a> <br/>
+        <div class="mt-0 d-flex justify-content-center">
+            <a class="btn btn-backoffice btn-danger text-light bg-none px-5" href="/admin/about" role="button">BACK OFFICE ADMIN</a>
+        </div>
     {% endif %}
-    - <a href="{{ path('account_password') }}">Modifier mon mot de passe.</a> <br/>
-    - Ajouter mes adresses. <br>
-    - Gerer mes commandes. <br>
+    <div class="account-btn-group ">
+        <div class="mt-3 d-flex justify-content-center">
+            <a class="btn btn-account bg-none px-5" href="{{ path('account_password') }}" role="button">MODIFIER LE MOT DE PASSE</a>
+        </div>
+       
+        <div class="mt-3 d-flex justify-content-center">
+            <a class="btn btn-account bg-none px-5" href="#" role="button"> 
+                
+              GERER MES ADRESSES</a>
+        </div>
+        
+        <div class="mt-3 d-flex justify-content-center">
+            <a class="btn btn-account bg-none px-5" href="#" role="button">GERER MES COMMANDES</a>
+        </div>
 
-    <hr>
+        <div class="mt-3 d-flex justify-content-center">
+            <a class="btn btn-account bg-none px-5" href="#" role="button">REDIGER UN AVIS SUR LE CABINET DE BIEN-ÊTRE</a>
+        </div>
+    </div>
+  
 
 {% endblock %}

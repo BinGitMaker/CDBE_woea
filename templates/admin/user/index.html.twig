@@ -5,21 +5,12 @@
 {% block body %}
 <h1 class="d-flex justify-content-center text-bg-info">Gestion des utilisateurs</h1>
 
-<div class="row d-flex justify-content-start "> 
-    <button type="button" class="btn btn-success col-2 m-3">
-        <a class="text-decoration-none text-light" href="{{ path('admin_user_new') }}">
-            CREER UN UTILISATEUR
-        </a>
-    </button>
-</div>
-
-    <table class="table">
+<table class="table">
         <thead>
             <tr>
                 
                 <th>Email</th>
                 <th>Role(s)</th>
-                <th>Mot de passe</th>
                 <th>Prénom</th>
                 <th>Nom</th>
                 
@@ -27,8 +18,13 @@
         </thead>
         <tbody>
         {% for user in users %}
-            <tr>
-                
+            <tr 
+                {% if user.roles|json_encode == '["ROLE_USER"]' %} 
+                    class=""
+                {% else %}
+                    class="bg-info"
+                {% endif %} 
+                >
                 <td>{{ user.email }}</td>
                 <td>
                     {% if user.roles|json_encode == '["ROLE_USER"]' %}
@@ -39,8 +35,6 @@
                         {{ user.roles ? user.roles|json_encode : '' }}</h5>
                     {% endif %}
                 </td>
-                {# <td>{{ user.roles ? user.roles|json_encode : '' }}</td> #}
-                <td>{{ user.password|slice(0,10) }} [...]</td>
                 <td>{{ user.firstname|capitalize }}</td>
                 <td>{{ user.lastname|capitalize }}</td>
                 <td>
@@ -50,9 +44,14 @@
                             MODIFIER 
                         </a>
                     </button>
-                    
-                    {{ include('admin/user/_delete_form.html.twig') }}
+                    {% if user.roles|json_encode == '["ROLE_USER"]' %}
+                        {{ include('admin/user/_delete_form.html.twig') }}
+                    {% else %}
+                       
+                    {% endif %}
+                   
                 </td>
+                
             </tr>
         {% else %}
             <tr>

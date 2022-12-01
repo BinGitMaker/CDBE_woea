@@ -32,6 +32,7 @@ class SendMsgType extends AbstractType
                 ), 
                 'attr' => [
                     'placeholder' => 'Saisissez votre prénom',
+                    'class' => 'shadow p-3 bg-light rounded',
                 ]
             ])
             ->add('lastname', TextType::class,[
@@ -46,25 +47,28 @@ class SendMsgType extends AbstractType
                 ), 
                 'attr' => [
                     'placeholder' => 'Saisissez votre nom',
+                    'class' => 'shadow p-3 bg-light rounded',
                 ]
             ])
             ->add('mail', EmailType::class, [
                 'label' => 'Votre email :',
                 'attr' => [
-                    'placeholder' => 'Saisissez votre email'
+                    'placeholder' => 'Saisissez votre email',
+                    'class' => 'shadow p-3  bg-light rounded',
                 ]
             ])
             ->add('message', TextareaType::class, [
                 'label' => 'Votre message :',
                 'attr' => [
                     'placeholder' => 'En quoi puis-je vous aider?',
-                    'rows' => 12 ]
+                    'class' => 'shadow p-3 mb-3 bg-light rounded',
+                    'rows' => 12 ],
             ])
             ->add('captcha', ReCaptchaType::class)
             ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer',
                 'attr' => [
-                    'class' => 'btn btn-rdv btn-dark bg-primary text-light'
+                    'class' => 'btn btn-rdv btn-lg btn-dark bg-primary text-light'
                 ]
             ])
         ;

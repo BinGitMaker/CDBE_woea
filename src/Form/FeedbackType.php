@@ -37,7 +37,7 @@ class FeedbackType extends AbstractType
                 'label' => 'Nom du rédacteur',
                 ])
             ->add('isBest', CheckboxType::class, [
-                'label' => 'A la une(Activé)/sinon(Désactivé)',
+                'label' => 'A la une(Activé)/sinon(Désactivé) // Si Activé: le commentaire apparaitra dans le carrousel des massages et celui des avis',
                 'required' => false,
                 'label_attr' => ['class' => 'switch-custom'],
             ])

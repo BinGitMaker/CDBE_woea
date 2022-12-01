@@ -3,7 +3,7 @@
 {% block title %}Hello RegisterController!{% endblock %}
 
 {% block content %}
-    <h1>Inscription</h1>
+    <h1 class="d-flex justify-content-center">Inscription</h1>
 
     {% if notification %}
         <div class="alert alert-warning">{{ notification }}</div>
@@ -11,4 +11,5 @@
     {% endif %}
 
     {{ form(form) }}
+    
 {% endblock %}

@@ -4,39 +4,45 @@
 
 {% block content %}
 
-    <h1 class="d-flex justify-content-center">Ils ont aimé l'experience</h1>
+    <h1 class="d-flex justify-content-center">Ils racontent leur experience Bien-Être</h1>
 
-    <div class="row">
+<!-- START HEADER -->
+    <div class="row ">
+
+    <!-- START ABOUT : PIC EXT CONTACT --> 
         {% for about in abouts %}
             <div class="col order-1 col-lg-4 flex-column">
                 
-                <img class="bd-placeholder-img rounded-circle" 
+                <img class="bd-placeholder-img rounded-circle my-4 mb-0 my-md-0 my-lg-5 mb-lg-0" 
                 src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
-                width="300" height="300"
+                width="260" height="260"
                 focusable="false" role="img" 
                 alt="{{ about.illustration }}">
-                
+
                 {% for contactMe in contactMes %}
-                    <p class="mt-4">
-                        <a class="btn btn-contact btn-light bg-light text-primary" href="{{ path('contactMe') }}" role="button">CONTACTEZ-MOI &raquo;</a>
-                    </p>
+                <div class="mb-lg-4 py-3 text-center">
+                    <h5 class="intervention">INTERVENTIONS  EXTERIEURES</h5>
+                    <p class="intervention">Entreprises <br>
+                    Ecole, EHPAD, Hôtel...</p>
+                    <div class="d-flex justify-content-center">
+                        <a class="btn btn-contact bg-light text-primary" href="{{ path('contactMe') }}" role="button">CONTACTEZ-MOI</a>
+                    </div>
+                   
+                </div>
                 {% endfor %}
 
-                <div class=" d-flex justify-content-center">
-                    <img class="" height="150" src="/build/images/blue.f90ba096.png" alt="">
-                </div>
-            
-               
             </div>
         {% endfor %}
-        
+    <!-- /. ABOUT : PIC EXT CONTACT -->   
+
+    <!-- START CARROUSEL : ONLY BEST FEEDBACKS -->        
         <section class="col order-2 col-lg-7 slidder">
             
             <input type="radio" name="position" />
             <input type="radio" name="position" />
-            <input type="radio" name="position" />
-            <input type="radio" name="position" />
             <input type="radio" name="position" checked/>
+            <input type="radio" name="position" />
+            <input type="radio" name="position" />
             <input type="radio" name="position" />
             <input type="radio" name="position" />
             <input type="radio" name="position" />
@@ -46,19 +52,42 @@
             <main id="carousel">
 
                 {% for feedback in feedbacks %}
-              <div class="item">
-                <section class="card-feedback">
-                    <h3>{{ feedback.title }}</h3>
-                    <p>{{ feedback.content }}</p>
-                    <h2 class="d-flex justify-content-end position-absolute bottom-0 end-0 mx-3">{{ feedback.name }}</h2>
-                </section>
-              </div>
+                    {% if feedback.isBest == 1 %}
+                        
+                        <div class="item">
+                            <section class="card-feedback">
+                                <h3>{{ feedback.title }}</h3>
+                                <p>{{ feedback.content }}</p>
+                                <h2 class="d-flex justify-content-end position-absolute bottom-0 end-0 mx-3">{{ feedback.name }}</h2>
+                            </section>
+                        </div>
+
+                    {% endif %}
                 {% endfor %}
 
             </main>
              
         </section><!-- /.right col -->
-        
+    <!-- /. CARROUSEL : ONLY BEST FEEDBACKS -->
     </div>
+<!-- /. HEADER -->
+
+<!-- START ALL FEEDBACKS -->
+        <div class="row ">
+            {% for feedback in feedbacks %}
+                <div class="">
+                    <section class="feedback">
+                        <h3>{{ feedback.title }}</h3>
+                        <p>{{ feedback.content }}</p>
+                        <h2 class="d-flex justify-content-end  mx-3">{{ feedback.name }}</h2>
+                    </section>
+                </div>
+            {% endfor %}
+        </div>
+<!-- /. ALL FEEDBACKS -->
+
+
+
+    
     
 {% endblock %}

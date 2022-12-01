@@ -1,0 +1,39 @@
+p.welcome{
+    font-size: 25px;
+}
+
+/* BACK OFFICE / ACCOUNT------------------------- */
+a.btn-backoffice, a.btn-account{
+    box-shadow: 0px 4px 4px #B6DFE4;
+    border-radius: 10px; 
+    width: 20rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #345A92;
+    color: #ECF2F5;
+    
+}
+
+a.btn-backoffice{
+    background: #ed5353;
+} 
+
+a.btn-account{
+    background: #345A92;
+}
+
+a.btn-backoffice:hover, a.btn-account:hover {
+    box-shadow: 0px 4px 4px #B6DFE4;
+    border: 2px solid #345A92;
+    color: #345A92;
+}
+
+
+.account-btn-group{
+    margin-bottom: 5rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}

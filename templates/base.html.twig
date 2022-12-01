@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="" lang="fr">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
        
     <meta name="description" content="Cabinet de Bien-Être">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
@@ -16,19 +16,17 @@
         
     <!-- Custom styles for this template -->
     {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('app') }}
     {% endblock %}
 
-    
 </head>
 
-<body class="pb-0 d-flex flex-column">
 
+<body class="pb-0 d-flex flex-column px-0 mx-0">
+    
 <header class="mb-5">
     {% include '_navbar.html.twig' %}
 </header>
-
-{# <main  role="main px-0"> #}
 
     <!-- massage messaging and featurettes
     ================================================== -->
@@ -37,21 +35,21 @@
     <div class="container massage py-5 pb-3 ">
 
         {% block content %}
-
+    <!--  START ZEN FLOWER        -->
+    <div class="flower d-flex justify-content-center">
+        <img class="flower" height="50" src="/build/images/logoFleur.4900bed2.png" alt="">
+    </div>
+    <!--  /. ZEN FLOWER        -->  
         {% endblock %}
 
     </div><!-- /.container -->
-    {# <section>
-        {% include '_intervention.html.twig' %}
-    </section> #}
 
     <!-- FOOTER -->
-    
     <footer>
         {% include '_footer.html.twig' %}
     </footer>
-    
-{# </main> #}
+    <!-- /. FOOTER -->
+
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

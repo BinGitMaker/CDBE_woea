@@ -61,8 +61,16 @@ class RegisterType extends AbstractType
                 'label' => 'Mot de passe',
                 'attr' => [
                     'placeholder' => 'Saisissez votre mot de passe'
-                ]
+                ],
             ],
+            'constraints' => new Length(
+                [
+                    'min' => 8,
+                    'max' => 30,
+                    'minMessage' => 'Votre mot de passe doit comporter {{ limit }} caractères au minimum et être composé d\'au moins : <br> - 1 lettre minuscule <br> - 1 lettre majuscule <br> - 1 chiffre <br> - 1 caractère spéciale',
+                    'maxMessage' => 'Votre mot de passe est trop long, il doit comporter {{ limit }} caractères au maximum',
+                ]
+            ),
             'second_options' => [
                 'label' => 'Confirmation du mot de passe',
                 'attr' => [
@@ -73,6 +81,9 @@ class RegisterType extends AbstractType
         ])
         ->add('submit', SubmitType::class, [
             'label' => 'S\'inscrire',
+            'attr' => [
+                'class' => 'btn btn-lg btn-primary'
+            ]
         ])
     ;
     }

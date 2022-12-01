@@ -7,14 +7,6 @@
 
 <a class="h5 p-3" href="{{ path('admin_massage_index') }}"><< Retour aux massages</a>
 
-<div class="row d-flex justify-content-start "> 
-    <button type="button" class="btn btn-success col-2 m-3">
-        <a class="text-decoration-none text-light" href="{{ path('admin_mass_category_new') }}">
-            CREER UNE CATEGORIE
-        </a>
-    </button>
-</div>
-<div class="text-danger">*** Pour des raisons de mise en page le site devra toujours avoir que 3 catégories ***</div>
     <table class="table">
         <thead>
             <tr>
@@ -32,7 +24,7 @@
                             MODIFIER 
                         </a>
                     </button>
-                   {#  {{ include('admin/mass_category/_delete_form.html.twig') }} #}
+                  
                 </td>
             </tr>
         {% else %}
@@ -42,5 +34,4 @@
         {% endfor %}
         </tbody>
     </table>
-    <div class="text-danger">*** Pour des raisons de mise en page le site devra toujours avoir que 3 catégories ***</div>
 {% endblock %}
