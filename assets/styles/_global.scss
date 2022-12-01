@@ -22,7 +22,7 @@ h1, h2{
 }
 
 
-.nav-title, .btn, h3, h4{
+.nav-title, .btn, h3, h4, button, label{
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -118,7 +118,7 @@ a.btn-mesPresta:hover {
 
 .btn.btn-rdv:hover {
     box-shadow: 0px 4px 4px #B6DFE4;
-    background: #B6DFE4;
+    background: #b6dfe400;
     border: 2px solid #345A92;
     color: #345A92;
 }
