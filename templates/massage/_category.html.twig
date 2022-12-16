@@ -1,17 +1,24 @@
 <div class="row mt-3">
     <div class="d-flex justify-content-center">
         <div class="button-group">
-            <div class="d-flex flex-row justify-content-center">
+            <div class="d-flex flex-row justify-content-center" >
                 {% for massCategory in massCategories %}
-
-                    <a href="{{ path('massage', {slug : massCategory.slug, title_massage : massage.title}) }}" 
-                    class="btn button button--pan my-2 my-md-0 mx-1 mx-md-3 mx-lg-5 w-25 d-flex align-items-center justify-content-center">
-                    <span>{{ massCategory.name }}</span>
-                    
-                </a>
+                    {# {% if condition %}
+                    si mon bouton est actif : affiche le texte en blanc sur fond bleu
+                    sinon affiche le marine sur fond bleu gradient 
+                        
+                    {% endif %} #}
+                        <a href="{{ path('massage', {slug : massCategory.slug, title_massage : massage.title}) }}" 
+                        id="btn{{ massCategory.id }}"
+                        class="btnCat {{ app.request.pathinfo == path('massage', {slug : massCategory.slug, title_massage : massage.title}) ? 'active'}} 
+                        btn button button--pan my-2 my-md-0 mx-1 mx-md-3 mx-lg-5 w-25 d-flex align-items-center justify-content-center">
+                        <span id="catName{{ massCategory.id }}">{{ massCategory.name }}
+                            
+                        </span>
+                        </a>
                     
                 {% endfor %}
-               
+        
             </div>
         </div>
     </div>
