@@ -1,20 +1,20 @@
 /* MASSAGES/PRESTATIONS ------------------------- */
 
 /* CATEGORIES ------------------------- */
-.btn-cat{
+/* .btnCat{
     background-image: linear-gradient(180deg, #B6DFE4 0%, #DEF0F2 52.08%, #ECF2F5 100%);
     margin-inline: 0.8rem;
     padding-block: 0.5rem;
     box-shadow: 0px 4px 4px #B6DFE4;
     border-radius: 60px;
     color:#345A92;
-}
+} */
 
 
 .button {
 	pointer-events: auto;
 	cursor: pointer;
-	background: #345A92;
+	/* background: #345A92; */
 	border: none;
 /* 	padding-block: 0.5rem;
 	margin-inline: 2rem; */
@@ -24,7 +24,11 @@
 	display: inline-block;
     box-shadow: 0px 4px 4px #B6DFE4;
     border-radius: 60px;
+    
 }
+
+
+
 
 @media (max-width:959px) {
     .button {
@@ -53,11 +57,10 @@
 	font-weight: 700;
 	overflow: hidden;
     max-width: 174px;
-}
+} 
 
 .button--pan:hover {
     background: linear-gradient(180deg, rgba(52, 90, 146, 0) 0%, #345A92 100%);
-	
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
@@ -67,23 +70,33 @@
 }
 
 .button--pan span:hover {
-    color:white;
-    
+    color:#ECF2F5;
 }
-
 
 .button--pan::before {
 	content: '';
 	background-image: linear-gradient(180deg, #B6DFE4 0%, #DEF0F2 52.08%, #ECF2F5 100%);
 	transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
-    
 }
-
-
 
 .button--pan:hover::before {
 	transform: translate3d(0,-100%,0);
 }
+
+/* CATEGORY BUTTONS ACTIVES ------------------------- */
+.btnCat.active span{
+    color:#ECF2F5;
+}
+.button--pan.active {
+    background: linear-gradient(180deg, rgba(52, 90, 146, 0) 0%, #345A92 100%);
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.button--pan.active::before {
+	content: '';
+	background-image: none;
+}
+
 
 /* MASSAGE LIST ------------------------- */
 @media (max-width: 990px) {
@@ -114,7 +127,7 @@
 
 .massage-title:hover{
     text-decoration: none;
-    text-shadow: 0px 4px 4px #FFFAFA;
+    text-shadow: 0px 4px 4px #fefffa;
 }
 
 

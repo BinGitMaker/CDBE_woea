@@ -43,6 +43,8 @@
 
             <div class="col-right col-12 col-lg-8 p-0"><!-- col-right -->
                 
+                
+
                 <div class="img-content col-9 d-flex justify-content-center align-items-center position-relative mb-3">
                     <img class="img-massage bd-placeholder-img bd-placeholder-img-lg opacity-25" 
                     src="{{ asset('/uploads/images/' ~ massage.illustration) }}" 
@@ -50,7 +52,7 @@
                     alt="{{ massage.title }}">
                     <h1 class="massage-maintitle position-absolute display-1 text-primary text-center">{{ massage.title }}</h1>
                 </div>
-
+                
                 <div class="pack-content">
                     {% include 'massage/_package.html.twig' %}
                 </div>
@@ -118,6 +120,9 @@
                 <div class="d-lg-none d-flex flex-column">
                     {% include 'massage/_feedback.html.twig' %}
                 </div>
+
+                
+
             </div><!-- /.col-right -->   
 
         </div>  

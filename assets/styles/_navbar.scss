@@ -6,6 +6,11 @@
     font-size: 16px;
 }
 
+.nav-title.active{
+    padding-bottom: 0.5rem;
+    border-bottom: 3px #345A92 solid;
+}
+
 /* NOM UTILISATEUR ------------------------- */
 
 strong.user-name{
