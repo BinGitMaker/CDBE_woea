@@ -1,0 +1,174 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Agenda : Cabinet de Bien-Être-Sandrine-Picod{% endblock %}
+
+{% block content %}
+
+    <h1 class="d-flex justify-content-center">Mes Evenements</h1>  
+
+<!-- HEADER -->
+    <section class="event-header row">
+
+        <!-- LEFT COL with picture -->
+        <div class="col d-flex flex-column col-md-3 align-items-center">
+            {% for about in abouts %}
+                <img class="bd-placeholder-img rounded-circle my-1" 
+                src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
+                width="150" height="150"
+                focusable="false" role="img" 
+                alt="{{ about.illustration }}">
+            {% endfor %}
+
+            <div class="mb-lg-4 py-2 text-center">
+                <a class="btn btn-contact bg-light text-primary" href="{{ path('contactMe') }}" role="button">UNE QUESTION?</a>
+            </div>
+
+            
+        </div>
+        <!-- /. LEFT COL with picture -->
+
+        <!-- CENTER + RIGHT COL with CARROUSEL-->
+        <div class="col col-md-8 ">
+            <h2 class="news text-center">A LA UNE</h2>
+            <div class="carrousel">
+                {% for about in abouts %}
+                <img class="bd-placeholder-img rounded-circle my-1 mx-3" 
+                src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
+                width="130" height="130"
+                focusable="false" role="img" 
+                alt="{{ about.illustration }}">
+
+                <img class="bd-placeholder-img rounded-circle my-1 mx-3" 
+                src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
+                width="130" height="130"
+                focusable="false" role="img" 
+                alt="{{ about.illustration }}">
+
+                <img class="bd-placeholder-img rounded my-1 mx-3" 
+                src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
+                width="130" height="130"
+                focusable="false" role="img" 
+                alt="{{ about.illustration }}">
+
+                <img class="bd-placeholder-img rounded-circle my-1 mx-3" 
+                src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
+                width="130" height="130"
+                focusable="false" role="img" 
+                alt="{{ about.illustration }}">
+                {% endfor %}
+            </div>
+        </div>
+        <!-- /. CENTER + RIGHT COL with CARROUSEL-->
+
+    </section>
+<!-- /. HEADER -->
+
+<!-- BODY -->
+    <section class="event-body ">
+        
+    <!-- SI C'EST UN ATELIER-->
+        <div class="row my-3">
+
+            <!-- IMAGE à GAUCHE et RONDE -->
+            <div class="event-illustration col-4">
+                
+                {% for about in abouts %}
+                    <img class="bd-placeholder-img rounded-circle my-1" 
+                    src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
+                    width="300" height="300"
+                    focusable="false" role="img" 
+                    alt="{{ about.illustration }}">
+                {% endfor %}
+            </div>
+            <!-- /. IMAGE à GAUCHE et RONDE -->
+                
+            <!-- CONTENU à DROITE -->
+            <div class="event-description col-8">
+                <h3>Titre de l'atelier</h3>
+                <div class="event-undertitle row">
+                    <h4 class="col-8">Adresse:</h4> 
+                    <h4 class="col-4">Prix:</h4>
+                </div>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit temporibus architecto magnam omnis qui reiciendis, possimus quisquam porro dolorem fugiat, modi explicabo maiores corporis. Sed et voluptatem molestias saepe dicta.
+                Maiores impedit quod architecto minima eos obcaecati labore, incidunt magni, et accusamus explicabo sunt ex molestiae quae voluptatibus fugiat? Veniam, aperiam debitis? Nostrum, commodi totam alias aliquid earum omnis expedita!</p>
+                
+                <div class="row">
+                    <div class="event-date-time card col-7">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><h5>Dates</h5></th>
+                                    <th><h5>Horaire</h5></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Date 1</td>
+                                    <td>Horaire 1</td>
+                                </tr>
+                                <tr>
+                                    <td>Date 2</td>
+                                    <td>Horaire 2</td>
+                                </tr>
+                                <tr>
+                                    <td>Date 3</td>
+                                    <td>Horaire 3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                    <div class="event-subscrib col-3 ">
+                        <button>JE M'INSCRIS A L'ATELIER</button>
+                    </div>
+                </div>
+                
+            </div>
+            <!--/. CONTENU à DROITE -->
+
+        </div>
+        <!-- FIN : SI C'EST UN ATELIER-->
+
+        <!-- SI C'EST UN SALON-->
+        <div class="row my-3">
+
+            <!-- CONTENU à GAUCHE -->
+            <div class="event-description col-8">
+                <h3>Titre du SALON</h3>
+                <div class="event-undertitle row">
+                    <h4 class="col-8">Adresse:</h4> 
+                    <h4 class="col-4">texte: PRIX</h4>
+                </div>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit temporibus architecto magnam omnis qui reiciendis, possimus quisquam porro dolorem fugiat, modi explicabo maiores corporis. Sed et voluptatem molestias saepe dicta.
+                Maiores impedit quod architecto minima eos obcaecati labore, incidunt magni, et accusamus explicabo sunt ex molestiae quae voluptatibus fugiat? Veniam, aperiam debitis? Nostrum, commodi totam alias aliquid earum omnis expedita!</p>
+                
+                <div class="row">
+                    <div class="event-date-time col-7">
+                        <h4>Du DATE START au DATE END</h4>
+                        
+                    </div>
+                    <div class="event-subscrib col-3 ">
+                        <button>JE RENDS RDV SUR L'EVENEMENT</button>
+                    </div>
+                </div>
+                
+            </div>
+            <!--/. CONTENU à GAUCHE -->
+
+            <!-- IMAGE à DROITE et CARREE RADIUS -->
+            <div class="event-illustration col-4">
+            
+                {% for about in abouts %}
+                    <img class="bd-placeholder-img rounded my-1" 
+                    src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
+                    width="300" height="300"
+                    focusable="false" role="img" 
+                    alt="{{ about.illustration }}">
+                {% endfor %}
+            </div>
+            <!--/.  IMAGE à DROITE et CARREE RADIUS -->
+        </div>
+        <!-- FIN : SI C'EST UN SALON-->
+    </section>
+
+{% endblock %}
