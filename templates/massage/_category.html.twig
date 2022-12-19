@@ -4,7 +4,7 @@
             <div class="d-flex flex-row justify-content-center" >
                 {% for massCategory in massCategories %}
                     
-                        <a href="{{ path('massage', {slug : massCategory.slug, title_massage : massage.title}) }}" 
+                        <a href="{{ path('massage', {slug : massCategory.slug, title_massage :massage.title}) }}" 
                         id="btn{{ massCategory.id }}"
                         class="btnCat {{ app.request.pathinfo == path('massage', {slug : massCategory.slug, title_massage : massage.title}) ? 'active'}} 
                         btn button button--pan my-2 my-md-0 mx-1 mx-md-3 mx-lg-5 w-25 d-flex align-items-center justify-content-center">

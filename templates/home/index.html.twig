@@ -59,15 +59,28 @@
 
             </div><!-- /.col-lg-4 -->
     
-        <!-- START INTERVENTION CARD -->
-            <div class="col-lg-3 order-3 d-flex justify-content-center">
-                <div class="card intervention-card">
-                    <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">INTERVENTIONS<br> EXTERIEURES</h5>
-                    <a href="#" class="btn btn-ext">ENTREPRISE</a>
-                    <a href="#" class="btn btn-ext">ECOLE</a>
-                    <a href="#" class="btn btn-ext">EHPAD</a>
+        <!-- START CARD AGENDA A LA UNE  -->
+            <div class="col-lg-3 order-3 agenda-card-content">
+                <div class="card agenda-card">
+                    <h5 class="card-title text-center news my-2 mb-0"> A LA UNE</h5>
+                    
+                    <div class="card-body agenda-card-body row-ac">
+                        <div class="agenda-card-left ">
+                            <img class="bd-placeholder-img rounded-circle my-0 mx-auto agenda-card-illustration" 
+                            src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
+                            width="180" height="180"
+                            focusable="false" role="img" 
+                            alt="">
+                            <h6 class="news text-center my-2 mb-0">Atelier Test</h6>
+                            <p class="news text-center my-0"> - lieu - <br>
+                            dateStart au dateEnd</p>
+                        </div>
+                        <div class="agenda-card-right">
+                            <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, accusantium perferendis distinctio quo eveniet temporibus reiciendis neque atque soluta nihil</p>
+                        </div>
                     </div>
+                    
+                    <a href="#" class="btn btn-agenda">Consultez l'agenda</a>
                 </div>
             </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
