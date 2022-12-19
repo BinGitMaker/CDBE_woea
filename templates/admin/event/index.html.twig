@@ -1,0 +1,66 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Event index{% endblock %}
+
+{% block body %}
+    <h1 class="d-flex justify-content-center text-bg-info">Gestion des évenements</h1>
+
+    <button type="button" class="btn btn-success col-2 m-3">
+        <a class="text-decoration-none text-light" href="{{ path('admin_event_new') }}">
+            CREER UN EVENEMENT
+        </a>
+    </button>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Illustration</th>
+                <th>Description</th>
+                <th>StartDate</th>
+                <th>EndDate</th>
+                <th>Address</th>
+                <th>Price</th>
+                <th>Public</th>
+                <th>Is_old</th>
+                <th>Is_workshop</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.title }}</td>
+                <td><div class="col">
+                    <img class="bd-placeholder-img bd-placeholder-img-lg img-fluid " 
+                    src="{{ asset('/uploads/images/' ~ event.illustration) }}" 
+                    alt="{{ event.illustration }}">
+                </div></td>
+                <td>{{ event.description|slice(0, 50) }}</td>
+                <td>{{ event.startDate ? event.startDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event.endDate ? event.endDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event.address }}</td>
+                <td>{{ event.price }}</td>
+                <td>{{ event.public }}</td>
+                <td>{{ event.isOld ? 'Yes' : 'No' }}</td>
+                <td>{{ event.isWorkshop ? 'Yes' : 'No' }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary m-2 editDelete">
+                        <a class="text-decoration-none text-light" href="{{ path('admin_event_edit', {'id': event.id}) }}">
+                            MODIFIER 
+                        </a>
+                    </button>
+                    {{ include('admin/event/_delete_form.html.twig') }}
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">il n'y a pas d'évenement pour le moment</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   
+{% endblock %}
