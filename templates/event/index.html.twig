@@ -7,6 +7,7 @@
     <h1 class="d-flex justify-content-center">Mes Evenements</h1>  
 
 <!-- HEADER -->
+{% for event in events %}
     <section class="event-header row">
 
         <!-- LEFT COL with picture -->
@@ -31,13 +32,14 @@
         <div class="col col-md-8 ">
             <h2 class="news text-center">A LA UNE</h2>
             <div class="carrousel">
-                {% for about in abouts %}
+                {% for event in events %}
                 <img class="bd-placeholder-img rounded-circle my-1 mx-3" 
-                src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
+                src="{{ asset('/uploads/images/' ~ event.illustration) }}" 
                 width="130" height="130"
                 focusable="false" role="img" 
-                alt="{{ about.illustration }}">
-
+                alt="{{ event.illustration }}">
+                {% endfor %}
+                {% for about in abouts %}
                 <img class="bd-placeholder-img rounded-circle my-1 mx-3" 
                 src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
                 width="130" height="130"
@@ -68,29 +70,28 @@
         
     <!-- SI C'EST UN ATELIER-->
         <div class="row my-3">
-
+            
             <!-- IMAGE à GAUCHE et RONDE -->
             <div class="event-illustration col-4">
                 
-                {% for about in abouts %}
+                
                     <img class="bd-placeholder-img rounded-circle my-1" 
-                    src="{{ asset('/uploads/images/' ~ about.illustration) }}" 
+                    src="{{ asset('/uploads/images/' ~ event.illustration) }}" 
                     width="300" height="300"
                     focusable="false" role="img" 
-                    alt="{{ about.illustration }}">
-                {% endfor %}
+                    alt="{{ event.illustration }}">
+                
             </div>
             <!-- /. IMAGE à GAUCHE et RONDE -->
                 
             <!-- CONTENU à DROITE -->
             <div class="event-description col-8">
-                <h3>Titre de l'atelier</h3>
+                <h3>{{ event.title }}</h3>
                 <div class="event-undertitle row">
-                    <h4 class="col-8">Adresse:</h4> 
-                    <h4 class="col-4">Prix:</h4>
+                    <h4 class="col-8">Lieu : {{ event.address }}</h4> 
+                    <h4 class="col-4">Prix : {{ event.price }} euros</h4>
                 </div>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit temporibus architecto magnam omnis qui reiciendis, possimus quisquam porro dolorem fugiat, modi explicabo maiores corporis. Sed et voluptatem molestias saepe dicta.
-                Maiores impedit quod architecto minima eos obcaecati labore, incidunt magni, et accusamus explicabo sunt ex molestiae quae voluptatibus fugiat? Veniam, aperiam debitis? Nostrum, commodi totam alias aliquid earum omnis expedita!</p>
+                <p>{{ event.description }}</p>
                 
                 <div class="row">
                     <div class="event-date-time card col-7">
@@ -119,13 +120,16 @@
                         
                     </div>
                     <div class="event-subscrib col-3 ">
-                        <button>JE M'INSCRIS A L'ATELIER</button>
+                        <div class="my-4 d-flex justify-content-center">
+                            <a class="btn btn-contact bg-light text-primary" href="{{ path('contactMe') }}" role="button">JE M'INSCRIS A L'ATELIER</a>
+                        </div>
+                        
                     </div>
                 </div>
                 
             </div>
             <!--/. CONTENU à DROITE -->
-
+            
         </div>
         <!-- FIN : SI C'EST UN ATELIER-->
 
@@ -144,7 +148,7 @@
                 
                 <div class="row">
                     <div class="event-date-time col-7">
-                        <h4>Du DATE START au DATE END</h4>
+                        <h4>Du {{ event.startDate ? event.startDate|date('Y-m-d') : '' }} au {{ event.endDate ? event.endDate|date('Y-m-d') : '' }}</h4>
                         
                     </div>
                     <div class="event-subscrib col-3 ">
@@ -170,5 +174,7 @@
         </div>
         <!-- FIN : SI C'EST UN SALON-->
     </section>
+
+    {% endfor %}
 
 {% endblock %}

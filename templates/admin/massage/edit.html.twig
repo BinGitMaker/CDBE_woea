@@ -4,7 +4,8 @@
 
 {% block body %}
     <h1 class="d-flex justify-content-center text-bg-info">Modifier le massage</h1>
-    <a class="h5 p-3" href="{{ path('admin_massage_index') }}"><< Retour</a>
+    
+    <a class="h5 p-3" href="{{ path('admin_massage_index') }}"><< Retour aux massages</a>
 
     {{ include('admin/massage/_form.html.twig', {'button_label': 'Valider la modification'}) }}
 
