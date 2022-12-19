@@ -16,8 +16,9 @@
    
         <div class="row justify-content-between"> 
             <div class="d-md-flex col-left colMassage col-lg-3 d-flex flex-column align-items-center "><!-- col-left -->
+                
                 <div class="my-4 d-flex justify-content-center">
-                    <a class="btn btn-rdv px-3" href="#" role="button">PRENEZ RENDEZ-VOUS</a>
+                    <a class="btn btn-rdv px-3" href="{{ path('contactMe') }}" role="button">PRENEZ RENDEZ-VOUS</a>
                 </div>
                 <br>
                 {% include 'massage/_massagesList.html.twig' %}
